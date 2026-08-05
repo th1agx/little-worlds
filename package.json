@@ -1,0 +1,44 @@
+{
+  "name": "portfolio-interativo",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.34.5",
+  "engines": {
+    "node": ">=24.0.0 <25"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "format": "prettier --check package.json src tests tools playwright.config.ts vitest.config.ts next.config.ts eslint.config.mjs prettier.config.mjs",
+    "format:write": "prettier --write package.json src tests tools playwright.config.ts vitest.config.ts next.config.ts eslint.config.mjs prettier.config.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:install": "playwright install chromium"
+  },
+  "dependencies": {
+    "@react-three/fiber": "9.7.0",
+    "next": "16.3.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "three": "0.185.1",
+    "zod": "4.4.3",
+    "zustand": "5.0.14"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@types/node": "22.19.14",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "@types/three": "0.185.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.0",
+    "prettier": "3.9.6",
+    "typescript": "5.9.3",
+    "vite": "6.4.1",
+    "vitest": "3.2.4"
+  }
+}

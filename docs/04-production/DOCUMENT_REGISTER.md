@@ -4,6 +4,8 @@
 
 ## Documentos ativos da fundação
 
+- Bootstrap: `02-architecture/BOOTSTRAP.md` e `SECURITY.md`, com os limites, contratos e política mínima da infraestrutura executável.
+
 - Produto: Vision, Experience Bible e Risks & Opportunities.
 - Arquitetura: Architecture, Tech Stack, Repository Structure e ADRs.
 - Design/engenharia: Art Direction, Scenes, UI/UX/Accessibility, Audio, Assets e Performance.
@@ -16,7 +18,6 @@
 
 | Documento | Gatilho | Conteúdo mínimo |
 | --- | --- | --- |
-| `SECURITY.md` | primeira aplicação inicializada | reporte, versões suportadas, secrets e dependency policy |
 | `THREAT_MODEL.md` | formulário, analytics ou API | dados, atores, abuso, controles e riscos residuais |
 | `PRIVACY.md` | coleta de qualquer telemetria | eventos, finalidade, retenção, fornecedor e opt-out |
 | `CONTENT_GUIDE.md` | conteúdo real recorrente | voz, case-study schema, claims, links e revisão |

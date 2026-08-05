@@ -4,7 +4,18 @@ Portfólio web contemplativo em primeira pessoa. O espaço 3D cria emoção; ter
 
 ## Estado
 
-`Sprint 0 — fundação e pesquisa`. Não há aplicação inicializada nem assets adquiridos. A implementação só começa após o gate de prontidão descrito em [`docs/04-production/SPRINT_1_READINESS.md`](docs/04-production/SPRINT_1_READINESS.md).
+`Sprint 1 — bootstrap técnico`. A aplicação local, o Canvas R3F, o pipeline de cenas e os gates de qualidade estão inicializados. Não há assets adquiridos, conteúdo, planetas, terminal ou interface de produto nesta entrega.
+
+## Executar localmente
+
+Requer Node `24.19.0` e pnpm `10.34.5`.
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Consulte [`docs/02-architecture/BOOTSTRAP.md`](docs/02-architecture/BOOTSTRAP.md) para os limites técnicos e os comandos de validação.
 
 ## Comece por aqui
 
@@ -17,4 +28,3 @@ Portfólio web contemplativo em primeira pessoa. O espaço 3D cria emoção; ter
 ## Princípio central
 
 O visitante nunca deve precisar dominar controles 3D para conhecer o profissional. A experiência imersiva é a camada de descoberta; conteúdo semântico, navegação alternativa e acessibilidade são requisitos do produto.
-

@@ -6,6 +6,8 @@ Esta pasta é a fonte de verdade da Sprint 0. “Proposto” significa que a dec
 
 ## Mapa
 
+O estado da base executável e seus limites estão em [`02-architecture/BOOTSTRAP.md`](02-architecture/BOOTSTRAP.md).
+
 | Área | Documento | Uso |
 | --- | --- | --- |
 | Produto | [`01-product/VISION.md`](01-product/VISION.md) | intenção, público, sucesso e limites |
@@ -41,6 +43,7 @@ Esta pasta é a fonte de verdade da Sprint 0. “Proposto” significa que a dec
 | IA | [`05-ai/MODEL_STRATEGY.md`](05-ai/MODEL_STRATEGY.md) | uso de Luna, Terra e Sol |
 | IA | [`05-ai/CONTEXT_STRATEGY.md`](05-ai/CONTEXT_STRATEGY.md) | economia de contexto e handoffs |
 | Referências | [`06-research/VISUAL_REFERENCES.md`](06-research/VISUAL_REFERENCES.md) | moodboard pesquisável e princípios |
+| Referências | [`06-research/MOVEMENT_REFERENCES.md`](06-research/MOVEMENT_REFERENCES.md) | análise de locomoção e síntese autoral |
 | Direção definitiva | [`07-sprint-0.5/README.md`](07-sprint-0.5/README.md) | índice das bíblias e constituição criativa |
 
 ## Governança
