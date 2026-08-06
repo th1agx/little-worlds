@@ -22,6 +22,8 @@ const defaultPreferences: ExperiencePreferences = {
 
 interface ExperienceState {
   activeSceneId: SceneId;
+  transitionTarget: SceneId | null;
+  transitionPhase: "idle" | "out" | "in";
   mode: ExperienceMode;
   pointerLocked: boolean;
   preferences: ExperiencePreferences;
@@ -31,6 +33,8 @@ interface ExperienceState {
   metrics: DevelopmentMetrics;
   beginExperience: () => void;
   selectScene: (sceneId: SceneId) => void;
+  requestSceneTransition: (sceneId: SceneId) => void;
+  advanceSceneTransition: () => void;
   setPointerLocked: (pointerLocked: boolean) => void;
   updatePreferences: (patch: Partial<ExperiencePreferences>) => void;
   signalLanding: () => void;
@@ -42,6 +46,8 @@ interface ExperienceState {
 
 export const useExperienceStore = create<ExperienceState>((set) => ({
   activeSceneId: "hub",
+  transitionTarget: null,
+  transitionPhase: "idle",
   mode: "welcome",
   pointerLocked: false,
   preferences: defaultPreferences,
@@ -60,7 +66,7 @@ export const useExperienceStore = create<ExperienceState>((set) => ({
     airborneTime: 0,
     jumpDistance: 0,
     angularVelocity: 0,
-    hoverHeight: 0.08,
+    hoverHeight: CONTROLLED_LEVITATION_DEFAULTS.baseHoverHeight,
     verticalVelocity: 0,
     hoverAmplitude: 0,
     hoverState: "grounded-hover",
@@ -70,6 +76,23 @@ export const useExperienceStore = create<ExperienceState>((set) => ({
   beginExperience: () => set({ mode: "exploring" }),
   selectScene: (sceneId) =>
     set((state) => ({ activeSceneId: sceneId, metrics: { ...state.metrics, sceneId } })),
+  requestSceneTransition: (sceneId) =>
+    set((state) =>
+      state.activeSceneId === sceneId
+        ? state
+        : { transitionTarget: sceneId, transitionPhase: "out" },
+    ),
+  advanceSceneTransition: () =>
+    set((state) => {
+      if (state.transitionPhase === "out" && state.transitionTarget) {
+        return {
+          activeSceneId: state.transitionTarget,
+          metrics: { ...state.metrics, sceneId: state.transitionTarget },
+          transitionPhase: "in",
+        };
+      }
+      return { transitionTarget: null, transitionPhase: "idle" };
+    }),
   setPointerLocked: (pointerLocked) =>
     set((state) => ({ pointerLocked, metrics: { ...state.metrics, pointerLocked } })),
   updatePreferences: (patch) =>

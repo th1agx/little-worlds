@@ -16,12 +16,14 @@ import {
 } from "@/features/player/locomotion/PlayerMotionModel";
 import { useInputController } from "@/features/player/input/useInputController";
 import { getGroundHeight } from "@/features/world/ground/groundHeight";
+import { getSceneSpawn } from "@/features/world/sceneSpawn";
+import type { SceneId } from "@/features/world/types";
 import { useExperienceStore } from "@/stores/experienceStore";
 
 const MIN_PITCH = -Math.PI / 2.2;
 const MAX_PITCH = Math.PI / 2.2;
 const HUB_BOUNDS = createBoundedCollisionAdapter({ minX: -18, maxX: 18, minZ: -18, maxZ: 18 });
-const TEST_BOUNDS = createBoundedCollisionAdapter({ minX: -14, maxX: 14, minZ: -14, maxZ: 14 });
+const PROJECTS_BOUNDS = createBoundedCollisionAdapter({ minX: -14, maxX: 14, minZ: -20, maxZ: 14 });
 
 export function PlayerController() {
   const input = useInputController();
@@ -39,21 +41,32 @@ export function PlayerController() {
   const currentYaw = useRef(0);
   const currentPitch = useRef(0);
   const initialized = useRef(false);
+  const lastSceneId = useRef<SceneId | null>(null);
   const motion = useRef<PlayerMotionState>(createPlayerMotionState());
   const landingOffset = useRef(0);
   const metricsElapsed = useRef(0);
   const lastLocomotion = useRef<"idle" | "walking" | "fast-step" | "airborne">("idle");
 
   useEffect(() => {
-    if (!initialized.current) {
-      motion.current.position.copy(camera.position);
+    if (lastSceneId.current === sceneId) return;
+    {
+      const spawn = getSceneSpawn(sceneId);
+      motion.current = createPlayerMotionState();
+      motion.current.position.set(spawn.x, camera.position.y, spawn.z);
       motion.current.position.y =
-        getGroundHeight(sceneId, camera.position.x, camera.position.z) +
+        getGroundHeight(sceneId, spawn.x, spawn.z) +
         PLAYER_EYE_HEIGHT +
         locomotionTuning.baseHoverHeight;
       motion.current.controlledHeight = locomotionTuning.baseHoverHeight;
+      camera.position.x = spawn.x;
+      camera.position.z = spawn.z;
       camera.position.y = motion.current.position.y;
+      targetYaw.current = spawn.yaw;
+      currentYaw.current = spawn.yaw;
+      targetPitch.current = 0;
+      currentPitch.current = 0;
       initialized.current = true;
+      lastSceneId.current = sceneId;
     }
   }, [camera, locomotionTuning.baseHoverHeight, sceneId]);
 
@@ -102,7 +115,7 @@ export function PlayerController() {
           motion.current.position.z,
         ),
       },
-      sceneId === "hub" ? HUB_BOUNDS.resolveMovement : TEST_BOUNDS.resolveMovement,
+      sceneId === "hub" ? HUB_BOUNDS.resolveMovement : PROJECTS_BOUNDS.resolveMovement,
     );
 
     if (result.jumped) temporaryAudioController.play("jump");

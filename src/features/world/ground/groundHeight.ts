@@ -1,9 +1,9 @@
 import type { SceneId } from "@/features/world/types";
 
 export function getGroundHeight(sceneId: SceneId, x: number, z: number): number {
-  if (sceneId !== "test") return 0;
+  if (sceneId !== "projects") return 0;
 
-  const insideRamp = x >= -6.5 && x <= -3.5 && z >= -7 && z <= -1;
-  if (insideRamp) return ((z + 7) / 6) * 0.8;
+  const insideBridgeRise = x >= -2.4 && x <= 2.4 && z >= -14 && z <= -8;
+  if (insideBridgeRise) return ((-z - 8) / 6) * 0.35;
   return 0;
 }

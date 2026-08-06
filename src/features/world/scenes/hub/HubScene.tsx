@@ -1,37 +1,42 @@
 "use client";
 
-import { LandingMotes } from "@/features/world/components/LandingMotes";
+import {
+  FutureBeacon,
+  GrassCluster,
+  LowPolyRock,
+  OpenPavilion,
+  PlaceholderTerminal,
+} from "@/features/world/components/BlockoutElements";
 import { PlaceholderSky } from "@/features/world/components/PlaceholderSky";
 
 export default function HubScene() {
   return (
-    <group name="hub-abstract-placeholder">
+    <group name="hub-limiar-blockout">
       <PlaceholderSky />
-      <LandingMotes />
-      <mesh position={[0, -0.22, 0]} receiveShadow>
-        <cylinderGeometry args={[19, 20, 0.45, 48]} />
-        <meshStandardMaterial color="#e8cfa7" roughness={0.95} />
-      </mesh>
-      <mesh position={[0, 0.02, -4]} rotation={[-Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[3.8, 4.15, 48]} />
-        <meshStandardMaterial color="#d9943d" roughness={0.75} />
-      </mesh>
-      <mesh position={[0, 1.15, -8]}>
-        <sphereGeometry args={[1.3, 20, 16]} />
-        <meshStandardMaterial color="#f7e9cf" roughness={0.85} />
-      </mesh>
-      <mesh position={[-5, 0.9, -4]} rotation={[0, 0.35, 0]}>
-        <boxGeometry args={[1.8, 1.8, 1.8]} />
-        <meshStandardMaterial color="#c8bfae" roughness={0.7} />
-      </mesh>
-      <mesh position={[6, 1.3, -6]} rotation={[0, -0.2, 0]}>
-        <cylinderGeometry args={[1.1, 1.3, 2.6, 12]} />
-        <meshStandardMaterial color="#9c7b67" roughness={0.92} />
-      </mesh>
-      <mesh position={[-12, 7, -24]}>
-        <sphereGeometry args={[1.8, 20, 16]} />
+      <mesh position={[-13, 7, -32]}>
+        <sphereGeometry args={[1.65, 20, 16]} />
         <meshBasicMaterial color="#f2bc5b" />
       </mesh>
+      <mesh position={[0, -0.5, -5]} receiveShadow>
+        <cylinderGeometry args={[20, 22, 1, 64]} />
+        <meshStandardMaterial color="#b79a61" roughness={0.97} flatShading />
+      </mesh>
+      <mesh position={[0, 0.025, -6.4]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+        <ringGeometry args={[2.65, 3.1, 48]} />
+        <meshStandardMaterial color="#d9943d" roughness={0.86} />
+      </mesh>
+      <OpenPavilion position={[0, 0, -10.8]}>
+        <PlaceholderTerminal position={[0, 0.3, 0]} />
+      </OpenPavilion>
+      <FutureBeacon position={[8.8, 0, -10.5]} color="#ce714a" />
+      <FutureBeacon position={[-10, 0, -11]} color="#78658d" />
+      <FutureBeacon position={[13, 0, 0]} color="#f2bc5b" />
+      <LowPolyRock position={[-3.4, 0.55, 2.2]} scale={1.25} />
+      <LowPolyRock position={[6.7, 0.38, -3.2]} scale={0.72} />
+      <LowPolyRock position={[-12.2, 0.42, -2.6]} scale={0.88} />
+      <GrassCluster position={[-2.2, 0, 1.4]} scale={1.1} />
+      <GrassCluster position={[5.4, 0, -1.5]} scale={0.9} />
+      <GrassCluster position={[-8.3, 0, -5.4]} scale={1.2} />
     </group>
   );
 }
