@@ -146,6 +146,9 @@ export function DevelopmentPanel() {
         <button onClick={() => requestSceneTransition("benchmark")} type="button">
           Benchmark
         </button>
+        <button onClick={() => requestSceneTransition("benchmark-v2")} type="button">
+          Benchmark V2
+        </button>
       </div>
       <hr />
       <strong>Comparar locomoção</strong>
