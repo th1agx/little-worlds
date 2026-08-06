@@ -4,6 +4,8 @@
 **Owner:** Art Director + Technical Art/Performance  
 **Data de pesquisa:** 2026-08-04
 
+> Esta Bíblia continua definindo princípios e budgets. A implementação operacional da biblioteca, a fila vigente e os itens aprovados/rejeitados estão em [`../08-asset-library/`](../08-asset-library/ASSET_LIBRARY.md).
+
 ## 1. Estratégia
 
 O projeto não modelará assets manualmente no Blender. A autoria nasce de seleção, combinação, materiais, luz, composição e transformação permitida por licença. Assets prontos são matéria-prima, nunca direção de arte pronta.
@@ -165,15 +167,15 @@ Embora não estivesse na lista mínima, música exige política própria:
 
 Cada finalista recebe 0–5:
 
-| Critério | Peso |
-| --- | ---: |
-| aderência à Art Bible | 25% |
-| licença/proveniência | 20% |
-| topologia/performance | 15% |
-| capacidade de harmonização | 15% |
-| formato/pipeline web | 10% |
-| singularidade sem IP | 10% |
-| custo total | 5% |
+| Critério                   | Peso |
+| -------------------------- | ---: |
+| aderência à Art Bible      |  25% |
+| licença/proveniência       |  20% |
+| topologia/performance      |  15% |
+| capacidade de harmonização |  15% |
+| formato/pipeline web       |  10% |
+| singularidade sem IP       |  10% |
+| custo total                |   5% |
 
 Reprovação automática: licença incerta, IP/marca, formato fechado sem export, impossibilidade de reduzir, estética militar/neon ou necessidade de modelagem manual extensa.
 
@@ -206,4 +208,3 @@ Somente após moodboard/style frame:
 - vento, folhas, passos, mecanismo e UI.
 
 Nada além disso deve ser adquirido para Sobre Mim sem revisão de escopo.
-
