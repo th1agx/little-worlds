@@ -12,6 +12,7 @@
 - Produção: Quality, Roadmap, Sprint 1 Readiness e o conjunto `vertical-slice/` (escopo, plano, ordem, riscos, assets, planeta, DoD, checklists e diretrizes).
 - IA/pesquisa: AI Stack, Context Strategy, AI Environment, Skill Catalog, Skill Routing, Model Strategy e Visual References.
 - Operação do repositório: README, AGENTS e Contributing.
+- CI e deploy: `CI_CD_AND_DEPLOYMENT.md`, com workflows reproduzíveis e checklist humano para a Vercel.
 - Direção Sprint 0.5: Rules, Art Bible, Experience Bible, Planet Bible + sete destinos, Asset Bible, AI Workflow, Prompt Library, Visual Moodboards e References.
 
 ## Criar quando o gatilho ocorrer
