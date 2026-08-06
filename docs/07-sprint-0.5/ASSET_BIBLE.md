@@ -4,13 +4,13 @@
 **Owner:** Art Director + Technical Art/Performance  
 **Data de pesquisa:** 2026-08-04
 
-> Esta Bíblia continua definindo princípios e budgets. A implementação operacional da biblioteca, a fila vigente e os itens aprovados/rejeitados estão em [`../08-asset-library/`](../08-asset-library/ASSET_LIBRARY.md).
+> Esta Bíblia continua definindo princípios e budgets. A direção de natureza foi atualizada pelo [ADR 0015](../02-architecture/decisions/0015-stylized-environment-visual-benchmark.md): densidade passa a ser composicional e `stylized 3D environment` substitui a premissa de low-poly esparso. A fila vigente está em [`../08-asset-library/`](../08-asset-library/ASSET_LIBRARY.md).
 
 ## 1. Estratégia
 
 O projeto não modelará assets manualmente no Blender. A autoria nasce de seleção, combinação, materiais, luz, composição e transformação permitida por licença. Assets prontos são matéria-prima, nunca direção de arte pronta.
 
-Ordem obrigatória: **reutilizar → adaptar por parâmetros/materiais → comprar pontualmente → gerar com IA sob controle → contratar ajuste especializado**. Nunca baixar pack grande antes de saber qual objeto e budget são necessários.
+Ordem obrigatória: **definir referência → pesquisar → validar licença/source → reutilizar ou comprar pontualmente → adaptar por parâmetros/materiais → contratar ajuste especializado**. Pack grande pode ser fonte curada, mas nunca é baixado antes de saber quais famílias e budgets serão testados.
 
 ## 2. Hierarquia de origem
 
@@ -36,13 +36,13 @@ Fontes prioritárias:
 
 ### Árvores
 
-- **Asset ideal:** árvore estilizada de copa aberta, assimétrica, 4–7 m, com uma variação hero até 9 m; tronco e copa separáveis; LOD ou topologia simples.
-- **Estilo:** low/mid-poly suave, massas de folha grandes, oliva/sálvia, sem card fotorrealista dominante.
-- **Quantidade máxima:** 1 árvore hero em Sobre; 0–3 árvores pequenas em qualquer outro planeta; máximo de 3 modelos-base no produto v1.
-- **Origem recomendada:** Kenney Nature Kit; Quaternius Ultimate Nature; Poly Pizza CC0/CC BY selecionado; item pontual Fab/Sketchfab.
+- **Asset ideal:** árvore estilizada de copa volumosa e assimétrica, 4–9 m; folhagem por massas, LOD e materiais compartilháveis.
+- **Estilo:** stylized mid-poly/painterly, sem folhas fotográficas; alpha pintado é permitido após medir overdraw.
+- **Quantidade máxima:** 2–3 modelos-base no benchmark; instâncias visíveis dependem de composição, LOD e budget, não de teto editorial fixo.
+- **Origem recomendada:** Dreamscape Meadows; The Illustrated Nature; PIDI/NatureForge para estratos; KayKit/Quaternius apenas como fallback.
 - **Prioridade:** P0 para vertical slice.
 - **Alternativas:** árvore procedural simples de biblioteca; combinar tronco/folhagem licenciados; contratar adaptação do asset comprado.
-- **Rejeitar:** árvore reconhecível de franquia, floresta pack inteira, milhões de folhas/cards ou material impossível de recolorir.
+- **Rejeitar:** árvore reconhecível de franquia, cena demo pronta, floresta sem composição, alpha sem budget ou material impossível de recolorir.
 
 ### Rochas
 
@@ -86,13 +86,13 @@ Fontes prioritárias:
 
 ### Vegetação
 
-- **Asset ideal:** três famílias instanciáveis: gramínea baixa, tuft médio, arbusto simples; geometria leve e variação por vertex color.
-- **Estilo:** naturalista estilizado, sálvia/oliva/seco, massas legíveis.
-- **Quantidade máxima:** 3 famílias por planeta; 5–9 grupos compostos; densidade high nunca altera caminho/silhueta.
-- **Origem recomendada:** Kenney Nature; Quaternius nature; Poly Pizza; paid stylized foliage packs pequenos.
+- **Asset ideal:** cobertura-base, tuft médio e arbusto instanciáveis; flores opcionais; vertex data para vento e materiais compartilháveis.
+- **Estilo:** naturalista stylized/painterly, verdes aquecidos e massas legíveis.
+- **Quantidade máxima:** 3 famílias + até 2 bases florais no benchmark; densidade High nunca altera caminho/silhueta e deve possuir equivalente Low.
+- **Origem recomendada:** PIDI COSY, The Illustrated Nature, Dreamscape Meadows e NatureForge; KayKit/Quaternius para filler específico.
 - **Prioridade:** P0.
 - **Alternativas:** procedural placement de poucos modelos; billboard apenas à distância; texturas CC0 recortadas com forte harmonização.
-- **Rejeitar:** lawn uniforme, flores arco-íris, folhas fotográficas em mundo estilizado, transparência excessiva.
+- **Rejeitar:** lawn uniforme sem camadas, flores arco-íris, folhas fotográficas em mundo estilizado ou transparência sem medição.
 
 ### Céu
 
@@ -183,7 +183,7 @@ Reprovação automática: licença incerta, IP/marca, formato fechado sem export
 
 1. Brief de asset aprovado com silhueta, proporção, material, quantidade e budget.
 2. Pesquisa em no máximo três fontes por rodada.
-3. Shortlist de até três itens, sem download quando preview basta.
+3. Shortlist de até três itens por papel, sem download quando preview basta.
 4. Revisão de licença/custo/formato.
 5. Aquisição autorizada.
 6. Inspeção e transformação por CLI/ferramenta automatizada ou serviço contratado.
@@ -193,18 +193,16 @@ Reprovação automática: licença incerta, IP/marca, formato fechado sem export
 
 Se um asset precisar de remodelagem extensa, ele foi selecionado incorretamente. A solução é trocar o asset ou contratar ajuste isolado, não criar pipeline interno de modelagem.
 
-## 7. Lista de compra do vertical slice
+## 7. Lista de prova do Visual Benchmark
 
-Somente após moodboard/style frame:
+Somente após aprovação humana da rota:
 
-- 1 árvore hero.
-- 1 banco.
-- 1 computador/console base.
-- 1 shell arquitetônico simples ou kit mínimo compatível.
-- 3 rochas-base.
-- 3 vegetações-base.
-- 5 materiais-base.
-- 1 solução de sky/lighting.
-- vento, folhas, passos, mecanismo e UI.
+- 2–3 árvores-base com LOD.
+- 2–3 rochas/cliffs-base.
+- cobertura, tuft e arbusto; até 2 flores-base.
+- 4–6 materiais compartilhados.
+- 1 solução de água estilizada.
+- 1 sky/lighting/fog autoral.
+- 1 campo de vento compartilhado.
 
-Nada além disso deve ser adquirido para Sobre Mim sem revisão de escopo.
+Banco, computador, arquitetura, áudio, UI, gameplay e Limiar ficam fora desta prova.

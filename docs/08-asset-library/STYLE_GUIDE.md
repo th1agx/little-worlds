@@ -6,7 +6,9 @@
 
 ## Norte visual
 
-Little Worlds é um cosmos artesanal de baixa complexidade: silhuetas fortes, materiais foscos, massas grandes, poucas cores e muito espaço respirando. O asset deve sustentar tranquilidade, curiosidade, conforto, exploração e esperança sem parecer infantil, épico ou espetacular.
+Little Worlds é um **stylized 3D environment** contemplativo: silhuetas fortes, folhagem volumosa, materiais pintados/foscos, massas legíveis, cor controlada e espaço negativo intencional. A complexidade de produção pode ser baixa ou média; a percepção final não deve parecer blockout, kit low-poly genérico ou realismo. O asset deve sustentar tranquilidade, curiosidade, conforto, exploração e esperança sem parecer infantil, épico ou espetacular.
+
+As duas referências aprovadas e sua decomposição estão em [`VISUAL_REFERENCE_ANALYSIS.md`](VISUAL_REFERENCE_ANALYSIS.md). Qualquer referência visual anterior de pack que não esteja ali deixa de orientar natureza e ambiente.
 
 Referências externas fornecem princípios de ritmo, escala e emoção. Nunca fornecem personagens, objetos, arquitetura, símbolos, paleta exata ou composição.
 
@@ -23,7 +25,10 @@ Falha em qualquer distância impede aprovação.
 
 - curvas largas e planos macios;
 - assimetria calma, não aleatoriedade;
-- base mineral quente, vegetação oliva/sálvia e luz âmbar;
+- base mineral quente, vegetação verde aquecida com variação sálvia/oliva e luz âmbar;
+- copas densas em massas sobrepostas e cliffs arredondados de planos largos;
+- estratos de grama, flores e arbustos organizados por máscaras de composição;
+- água turquesa controlada como linha de composição;
 - madeira clara envelhecida com moderação;
 - cerâmica, cal, pedra e metal pintado fosco;
 - um contraste frio profundo apenas no céu alto e nas sombras;
@@ -36,13 +41,13 @@ Falha em qualquer distância impede aprovação.
 - runas, arcos, cristais brilhantes, cogumelos mágicos e arquitetura medieval;
 - neon, hologramas, painéis técnicos, cabos expostos e cockpit;
 - templos, ruínas reconhecíveis, monumentos bélicos e megaconstruções;
-- vegetação densa usada apenas para “encher”;
+- vegetação densa distribuída sem foco, percurso ou budget de overdraw;
 - asset cuja origem é imediatamente reconhecível como um kit comercial.
 
 ## Forma e topologia
 
 - Priorizar uma massa principal e no máximo duas secundárias.
-- Preferir geometria a alpha cards próximos da câmera.
+- Preferir geometria para a silhueta principal; alpha cards pintados são permitidos em folhagem quando overdraw, sorting e mipmaps passarem no benchmark.
 - Silhueta vale mais que normal map.
 - Pequenos detalhes devem poder ser removidos sem destruir identidade.
 - Pivot, escala e eixos precisam ser normalizáveis por CLI.
@@ -51,15 +56,15 @@ Falha em qualquer distância impede aprovação.
 
 ## Materiais
 
-| Família       | Aparência                        | Evitar                                    |
-| ------------- | -------------------------------- | ----------------------------------------- |
-| pedra         | quente, seca, variação ampla     | scan, rachadura nítida, brilho molhado    |
-| terra         | pêssego/ocre dessaturado         | lama, ruído fino, repetição visível       |
-| vegetação     | sálvia/oliva/seco                | verde puro, folhas fotográficas           |
-| madeira       | clara, fosca, veios discretos    | verniz, tábuas medievais                  |
-| cal/cerâmica  | creme e marfim quente            | branco hospitalar, marble luxuoso         |
-| metal pintado | baixo brilho, azul/cobre contido | chrome, gunmetal, painel sci-fi           |
-| emissivo      | âmbar/marfim, área pequena       | neon saturado, bloom como forma principal |
+| Família       | Aparência                                            | Evitar                                    |
+| ------------- | ---------------------------------------------------- | ----------------------------------------- |
+| pedra         | quente, seca, variação ampla                         | scan, rachadura nítida, brilho molhado    |
+| terra         | pêssego/ocre dessaturado                             | lama, ruído fino, repetição visível       |
+| vegetação     | verdes aquecidos, sálvia/oliva e acentos controlados | verde neon, folhas fotográficas           |
+| madeira       | clara, fosca, veios discretos                        | verniz, tábuas medievais                  |
+| cal/cerâmica  | creme e marfim quente                                | branco hospitalar, marble luxuoso         |
+| metal pintado | baixo brilho, azul/cobre contido                     | chrome, gunmetal, painel sci-fi           |
+| emissivo      | âmbar/marfim, área pequena                           | neon saturado, bloom como forma principal |
 
 KTX2 só é adotado quando textura realmente existe e o ganho de memória/upload compensa. Um atlas de 1024 px não vira automaticamente um conjunto de mapas PBR.
 
@@ -68,9 +73,10 @@ KTX2 só é adotado quando textura realmente existe e o ganho de memória/upload
 ### Natureza
 
 - Rochas: três silhuetas-base, não uma coleção de vinte variações.
-- Árvores: copa aberta, leitura individual; uma árvore pode ser marco, uma floresta não.
-- Grama: grupos compostos e margens; nunca cobertura homogênea.
-- Flores: uma cor de acento por composição, em grupos raros.
+- Árvores: copas volumosas, densas e assimétricas; 2–3 bases podem formar molduras e fundo, sem criar floresta navegável genérica.
+- Grama: cobertura-base descontínua mais grupos compostos; densidade alta apenas onde não prejudica percurso, foco ou fragment budget.
+- Flores: até duas famílias cromáticas relacionadas por composição, em bolsões deliberados.
+- Arbustos: massas de transição entre terreno, cliffs e árvores; nunca scatter uniforme.
 - Cristais: apenas minerais opacos e geológicos; se parecer recompensa, magia ou moeda, rejeitar.
 
 ### Arquitetura e props

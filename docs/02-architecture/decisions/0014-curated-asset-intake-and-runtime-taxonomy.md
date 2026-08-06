@@ -17,7 +17,7 @@ Adotar três zonas separadas:
 
 Download, aprovação para quarentena e aprovação para runtime são estados diferentes. Nenhuma pasta de runtime é varrida automaticamente; cenas registram dependências em manifestos explícitos.
 
-KayKit Forest Free é a primeira base a avaliar, não uma dependência visual adotada. A biblioteca será composta por itens selecionados, rematerializados e medidos, nunca por importação integral de packs.
+A biblioteca será composta por itens selecionados, rematerializados e medidos, nunca por importação integral de packs. A escolha original de KayKit Forest Free como primeira base foi superada pelo [ADR 0015](0015-stylized-environment-visual-benchmark.md); a taxonomia e os gates deste ADR permanecem válidos.
 
 ## Consequências
 

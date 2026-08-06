@@ -2,7 +2,7 @@
 
 **Estado:** curadoria aprovada; nenhum arquivo adquirido
 
-**Data da pesquisa:** 2026-08-05
+**Data da pesquisa:** 2026-08-05; revisão visual 2026-08-06
 
 **Owners:** Art Director + Technical Artist + Asset Pipeline Engineer
 
@@ -10,7 +10,9 @@
 
 Little Worlds não adotará um pack como direção de arte. A biblioteca será uma coleção pequena de matérias-primas compatíveis, harmonizadas por paleta, materiais, iluminação, escala e composição próprias.
 
-**KayKit Forest — Free** é a melhor base técnica inicial: CC0, glTF nativo, atlas único, baixo peso e variedade suficiente para selecionar poucas silhuetas. Não será usado como kit completo. **Quaternius** será a segunda fonte, sobretudo para pedras, vegetação e props isolados. **Poly Pizza** será a fonte de objetos pontuais com licença por item. Kenney permanece como fallback técnico. Synty, Sketchfab e grandes bundles não são bibliotecas-base.
+A escolha de uma base visual foi **reaberta**. KayKit Forest e Quaternius Simple Nature continuam úteis como fallback técnico, distante, colisor ou matéria-prima pontual, mas não definem a aparência do projeto. A referência dominante aparenta usar **Dreamscape Nature: Meadows**; ele passa a ser o primeiro candidato a investigar, condicionado a source, licença e conversão Web. A comparação completa está em [`ASSET_RESEARCH_ROUND_2.md`](ASSET_RESEARCH_ROUND_2.md).
+
+Nenhum pack será adotado como direção de arte. A meta agora é `stylized 3D environment`: vegetação volumosa, estratos densos, cliffs de planos largos, água estilizada e atmosfera quente, harmonizados por materiais, paleta, iluminação, vento, fog, escala e composição próprios.
 
 Nenhum candidato desta pesquisa está aprovado para runtime. `APPROVED_ASSETS.md` aprova apenas itens para download controlado e quarentena. Aprovação de produção exige inspeção do arquivo.
 
@@ -24,19 +26,19 @@ As obras citadas pelo projeto são referências de sensação, não testes de im
 
 ## Matriz das fontes
 
-| Fonte                                                      | Licença típica                         | Formatos observados                    | Força                                 | Risco                                               | Papel                                                 |
-| ---------------------------------------------------------- | -------------------------------------- | -------------------------------------- | ------------------------------------- | --------------------------------------------------- | ----------------------------------------------------- |
-| [KayKit Forest](https://kaylousberg.itch.io/kaykit-forest) | CC0                                    | FBX, OBJ, glTF; Blend no tier Source   | atlas e topologia web-friendly        | aparência de kit se usado em massa                  | base natural, com seleção mínima                      |
-| [Quaternius](https://quaternius.com/)                      | CC0 por pack verificado                | FBX, OBJ, Blend; vários packs com glTF | formas simples e variedade            | mistura de épocas e fantasia; qualidade varia       | complemento por objeto                                |
-| [Kenney](https://kenney.nl/assets)                         | CC0                                    | confirmar no arquivo de cada pack      | licença excelente e assets leves      | leitura toy/prototype em alguns kits                | fallback, escadas e props simples                     |
-| [Poly Pizza](https://poly.pizza/)                          | por item: CC0 ou CC BY                 | OBJ/FBX e glTF conforme item           | objetos pontuais e preview rápido     | metadados de geometria ambíguos na página           | busca cirúrgica                                       |
-| [Poly Haven](https://polyhaven.com/license)                | CC0                                    | HDR/EXR/JPG e PBR                      | proveniência forte e HDRIs puros      | realismo e arquivos grandes                         | referência/iluminação, nunca estética pronta          |
-| [ambientCG](https://ambientcg.com/)                        | CC0                                    | PBR/HDRI, conforme item                | materiais com licença simples         | frequência visual fotográfica                       | pesquisa de base, ainda sem aprovado                  |
-| [Freesound](https://freesound.org/help/faq/)               | CC0, CC BY ou BY-NC por item           | WAV/FLAC/MP3                           | gravações individuais específicas     | upload comunitário e licenças misturadas            | SFX individual com snapshot                           |
-| [OpenGameArt](https://opengameart.org/node/5571)           | CC0, CC BY, OGA-BY, SA ou GPL por item | variável                               | arquivo aberto e histórico de autoria | qualidade, formatos e obrigações muito heterogêneos | fonte secundária; apenas item CC0/CC BY após inspeção |
-| [Sonniss GDC](https://gdc.sonniss.com/)                    | royalty-free própria                   | WAV, conforme arquivo                  | masters profissionais, uso comercial  | bundle enorme; licença veda IA/ML                   | fallback de áudio após busca dirigida                 |
-| [Sketchfab](https://sketchfab.com/licenses)                | licença por item                       | variável                               | catálogo amplo                        | autoria, remoção, atribuição e termos por item      | último recurso; nunca busca em massa                  |
-| [Synty](https://syntystore.com/)                           | licença comercial própria              | packs orientados a engines             | consistência e suporte                | identidade reconhecível, volume e custo             | não comprar nesta fase                                |
+| Fonte                                                      | Licença típica                         | Formatos observados                    | Força                                 | Risco                                                | Papel                                                 |
+| ---------------------------------------------------------- | -------------------------------------- | -------------------------------------- | ------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------- |
+| [KayKit Forest](https://kaylousberg.itch.io/kaykit-forest) | CC0                                    | FBX, OBJ, glTF; Blend no tier Source   | atlas e topologia web-friendly        | aparência simples/kit se usado visivelmente em massa | fallback técnico, distante ou colisor                 |
+| [Quaternius](https://quaternius.com/)                      | CC0 por pack verificado                | FBX, OBJ, Blend; vários packs com glTF | formas simples e variedade            | mistura de épocas e fantasia; qualidade varia        | complemento por objeto                                |
+| [Kenney](https://kenney.nl/assets)                         | CC0                                    | confirmar no arquivo de cada pack      | licença excelente e assets leves      | leitura toy/prototype em alguns kits                 | fallback, escadas e props simples                     |
+| [Poly Pizza](https://poly.pizza/)                          | por item: CC0 ou CC BY                 | OBJ/FBX e glTF conforme item           | objetos pontuais e preview rápido     | metadados de geometria ambíguos na página            | busca cirúrgica                                       |
+| [Poly Haven](https://polyhaven.com/license)                | CC0                                    | HDR/EXR/JPG e PBR                      | proveniência forte e HDRIs puros      | realismo e arquivos grandes                          | referência/iluminação, nunca estética pronta          |
+| [ambientCG](https://ambientcg.com/)                        | CC0                                    | PBR/HDRI, conforme item                | materiais com licença simples         | frequência visual fotográfica                        | pesquisa de base, ainda sem aprovado                  |
+| [Freesound](https://freesound.org/help/faq/)               | CC0, CC BY ou BY-NC por item           | WAV/FLAC/MP3                           | gravações individuais específicas     | upload comunitário e licenças misturadas             | SFX individual com snapshot                           |
+| [OpenGameArt](https://opengameart.org/node/5571)           | CC0, CC BY, OGA-BY, SA ou GPL por item | variável                               | arquivo aberto e histórico de autoria | qualidade, formatos e obrigações muito heterogêneos  | fonte secundária; apenas item CC0/CC BY após inspeção |
+| [Sonniss GDC](https://gdc.sonniss.com/)                    | royalty-free própria                   | WAV, conforme arquivo                  | masters profissionais, uso comercial  | bundle enorme; licença veda IA/ML                    | fallback de áudio após busca dirigida                 |
+| [Sketchfab](https://sketchfab.com/licenses)                | licença por item                       | variável                               | catálogo amplo                        | autoria, remoção, atribuição e termos por item       | último recurso; nunca busca em massa                  |
+| [Synty](https://syntystore.com/)                           | licença comercial própria              | packs orientados a engines             | consistência e suporte                | identidade reconhecível, volume e custo              | não comprar nesta fase                                |
 
 Preços e disponibilidade são snapshots, não garantias. Devem ser reconfirmados no dia da aquisição.
 
@@ -44,11 +46,11 @@ Preços e disponibilidade são snapshots, não garantias. Devem ser reconfirmado
 
 | Categoria            | Direção                                             |           Quantidade-base v1 | Fonte inicial                             | Estado                   |
 | -------------------- | --------------------------------------------------- | ---------------------------: | ----------------------------------------- | ------------------------ |
-| Pedras               | três massas erodidas: baixa, média e vertical       |                            3 | KayKit Forest Free                        | fila P0                  |
-| Vegetação            | tufos largos, arbusto simples, formas secas         |                   3 famílias | KayKit Forest Free                        | fila P0                  |
-| Árvores              | copa aberta e assimétrica; um marcador hero         |                até 3 modelos | KayKit + Quaternius Simple Nature         | comparar                 |
-| Flores               | um acento cromático, nunca campo decorativo         |                   1 conjunto | CreativeTrio Flowers                      | fila P2                  |
-| Grama                | grupos instanciáveis; sem lawn uniforme             |                      2 bases | KayKit Forest Free                        | fila P0                  |
+| Pedras/cliffs        | massas erodidas, arredondadas e de planos largos    |                    2–3 bases | Dreamscape; AeonShaper condicional        | shortlist visual         |
+| Vegetação            | base, tufts e arbustos em estratos composicionais   |                   3 famílias | PIDI, Illustrated Nature ou NatureForge   | shortlist visual         |
+| Árvores              | copas volumosas, densas e assimétricas              |                  2–3 modelos | Dreamscape ou Illustrated Nature          | shortlist visual         |
+| Flores               | dois acentos relacionados, em bolsões               |                  até 2 bases | PIDI ou NatureForge                       | shortlist visual         |
+| Grama                | cobertura descontínua + grupos instanciados         |                    2–3 bases | PIDI ou NatureForge                       | shortlist visual         |
 | Pontes               | baixa, simples, parte do terreno                    | 1 por cena quando necessária | CreativeTrio Bridge                       | fila P2                  |
 | Escadas              | largas, baixas, sem desafio de plataforma           |                     1 módulo | Kenney Stairs Closed                      | fila P2                  |
 | Pequenas construções | shell autoral por composição, não kit urbano        |                1 por planeta | sem finalista                             | gap crítico              |
@@ -63,7 +65,7 @@ Preços e disponibilidade são snapshots, não garantias. Devem ser reconfirmado
 | Nuvens               | massas muito lentas, sem skybox fotográfico visível |                  0–1 recurso | nenhum finalista                          | adiado                   |
 | Áudio                | vento, passos, folhas em faixas separadas           |            1 bed + variações | Freesound CC0 individual                  | fila P0                  |
 | Música               | esparsa, opt-in, sem condução emocional constante   |            0–1 tema no slice | Scott Buckley para temp track             | fila P2                  |
-| Materiais            | foscos, baixa frequência, atlas/vertex color        |            5–7 famílias/cena | atlas KayKit + materiais próprios         | teste P0                 |
+| Materiais            | stylized/painterly, foscos, atlas/vertex color      |            4–6 famílias/cena | materiais próprios sobre source curado    | Visual Benchmark         |
 
 ## Referências conceituais para os Limiares
 
@@ -83,7 +85,7 @@ Síntese autoral: o Limiar deve parecer uma mudança local nas regras da luz —
 
 ### Quanto da identidade pode ser gratuita?
 
-Estimativa: **70–80% da identidade ambiental v1** pode ser construída com assets gratuitos, porque a identidade depende mais de seleção, paleta, luz, densidade, escala, composição e áudio do que de meshes exclusivos. Essa porcentagem não significa 70–80% do trabalho: harmonização, validação, compressão, implantação e direção continuam sendo trabalho autoral.
+Após as novas referências, a estimativa cai para **45–60% da identidade ambiental v1** com assets totalmente gratuitos. Fontes CC0 ainda podem resolver fillers, distância, rochas secundárias e parte da vegetação, mas as copas hero, cliffs e estratos painterly provavelmente justificam uma compra dirigida. A porcentagem só será recalibrada depois do Visual Benchmark.
 
 ### Onde vale investir
 
@@ -91,9 +93,10 @@ Estimativa: **70–80% da identidade ambiental v1** pode ser construída com ass
 2. **Shell arquitetônico/observatório:** precisa parecer futuro gentil e habitável sem sci-fi ou fantasia pronta.
 3. **Áudio de ambiência e foley:** gravações consistentes, loops invisíveis e variações de passos têm impacto maior que mais decoração.
 4. **Música original ou licença clara:** somente após a linguagem de silêncio estar validada.
-5. **Adaptação especializada pontual:** retopologia, separação de materiais ou ajuste de um asset comprado, em vez de comprar bundles.
+5. **Natureza hero e estrato painterly:** agora justificam investimento se Dreamscape, Illustrated Nature ou PIDI provarem ganho perceptivo mensurável.
+6. **Adaptação especializada pontual:** retopologia, separação de materiais ou ajuste de um asset comprado, em vez de comprar bundles.
 
-Não vale investir agora em packs de natureza, partículas, HDRIs 16K, materiais 4–8K ou bundles “complete”.
+Não vale investir agora em partículas, HDRIs 16K, materiais 4–8K ou bundles `complete`. Pack de natureza só é investimento aceitável quando nomeado na fila revisada e autorizado para o benchmark.
 
 ## Fontes complementares consultadas
 

@@ -32,6 +32,18 @@ O [KayKit Forest](https://kaylousberg.itch.io/kaykit-forest) declara CC0, uso co
 
 Verificar a página de cada pack. Os packs selecionados declaram CC0 e uso comercial, mas formatos e conteúdo variam. Não extrapolar a licença de um pack para outro arquivo hospedado no site.
 
+### Unity Asset Store
+
+A [Standard Unity Asset Store EULA](https://unity.com/legal/as-terms), para assets não restritos, permite incorporar e modificar o asset dentro de um produto digital com conteúdo original substancial e distribuir o asset apenas embutido nesse produto. Não permite redistribuir source/asset isoladamente. Itens `Restricted`, termos adicionais do publisher e a classificação `Extension Asset` prevalecem e precisam ser registrados por item.
+
+Uso licenciado fora da Unity não significa portabilidade técnica. Antes da compra, confirmar se o package contém meshes e texturas-fonte utilizáveis; prefabs, shaders, scripts e cenas de demo não são formatos do pipeline R3F.
+
+### Fab
+
+A [Fab Standard License](https://www.fab.com/eula?lang=en) permite uso comercial, modificação, distribuição incorporada ao produto e uso com ferramentas compatíveis fora da Unreal. O tier `Reference Only` não entrega source e é proibido para nosso pipeline. Alguns itens migrados podem exibir termos diferentes; o checkout e o license type do item são a evidência, não a licença genérica do site.
+
+Para Fab e Unity, arquivos pagos originais e derivados que permitam reconstruir o asset permanecem fora do Git público. A aplicação pode distribuir somente derivados incorporados de acordo com a licença registrada.
+
 ### Kenney
 
 O [suporte oficial](https://kenney.nl/support) informa que assets nas páginas de assets são CC0 e podem ser usados comercialmente sem atribuição. Guardar também o license file incluído no download.

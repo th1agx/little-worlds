@@ -18,3 +18,4 @@ ADRs registram contexto e trade-offs de decisões caras de reverter. Numeração
 | [0012](0012-diegetic-portal-navigation.md)                | superseded | navegação diegética por portais físicos                                              |
 | [0013](0013-phenomenological-threshold-language.md)       | accepted   | substituir portais por Limiares fenomenológicos luminosos                            |
 | [0014](0014-curated-asset-intake-and-runtime-taxonomy.md) | accepted   | separar catálogo, quarentena e derivados por domínio                                 |
+| [0015](0015-stylized-environment-visual-benchmark.md)     | accepted   | provar stylized 3D environment em benchmark isolado antes de substituir o Hub        |

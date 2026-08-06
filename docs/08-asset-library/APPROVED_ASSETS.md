@@ -1,17 +1,17 @@
 # Assets aprovados para quarentena
 
-**Estado:** shortlist autorizável; nenhum download realizado
+**Estado:** autorizações anteriores suspensas; nenhum download realizado
 
 **Aprovação para runtime:** **nenhuma**
 
-“Aprovado” neste documento significa que o candidato merece aquisição controlada e inspeção. Não significa que pode ser publicado em `public/assets` ou usado em cena. Quantidade de polígonos não publicada ou semanticamente ambígua nunca é estimada: deve ser medida no arquivo em quarentena.
+“Aprovado” neste documento significava que o candidato merecia aquisição controlada e inspeção sob a direção de 2026-08-05. Essa autorização foi suspensa pela revisão visual de 2026-08-06. A shortlist vigente está em [`ASSET_RESEARCH_ROUND_2.md`](ASSET_RESEARCH_ROUND_2.md) e ainda depende de aprovação humana. Quantidade de polígonos não publicada nunca é estimada: deve ser medida em quarentena.
 
-## Packs-base
+## Packs-base anteriores — reclassificados como fallback
 
-| Nome                                                                 | Autor        | Licença | Site / preço no snapshot                          | Formatos                        | Polígonos                         | Qualidade                        | Compatibilidade                                     | Vantagens                                                   | Desvantagens                                                          | Motivo da escolha                                                         |
-| -------------------------------------------------------------------- | ------------ | ------- | ------------------------------------------------- | ------------------------------- | --------------------------------- | -------------------------------- | --------------------------------------------------- | ----------------------------------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| [KayKit Forest — Free](https://kaylousberg.itch.io/kaykit-forest)    | Kay Lousberg | CC0     | itch.io; grátis; Extra US$ 9,99; Source US$ 14,99 | FBX, OBJ, glTF; Blend no Source | não publicado; medir por modelo   | alta como matéria-prima low-poly | muito alta: glTF, atlas 1024, atlas pode cair a 128 | 100+ modelos, atlas único, mobile-friendly, licença simples | usar pack inteiro produziria identidade KayKit e excesso de vegetação | melhor laboratório para rocks, grass, bush e tree com baixo custo técnico |
-| [Simple Nature Pack](https://quaternius.com/packs/simplenature.html) | Quaternius   | CC0     | Quaternius; grátis                                | FBX, OBJ, Blend                 | não publicado; medir na conversão | média/alta, formas muito simples | média: sem glTF anunciado; conversão necessária     | apenas 13 modelos, pouca textura, baixa complexidade        | pack antigo; materiais e escala precisam inspeção                     | alternativa pequena para comparar silhuetas sem baixar um megakit         |
+| Nome                                                                 | Autor        | Licença | Site / preço no snapshot                          | Formatos                        | Polígonos                         | Qualidade                        | Compatibilidade               | Vantagens                                      | Desvantagens                                               | Motivo da escolha                                      |
+| -------------------------------------------------------------------- | ------------ | ------- | ------------------------------------------------- | ------------------------------- | --------------------------------- | -------------------------------- | ----------------------------- | ---------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------ |
+| [KayKit Forest — Free](https://kaylousberg.itch.io/kaykit-forest)    | Kay Lousberg | CC0     | itch.io; grátis; Extra US$ 9,99; Source US$ 14,99 | FBX, OBJ, glTF; Blend no Source | não publicado; medir por modelo   | alta como matéria-prima low-poly | muito alta: glTF e atlas 1024 | 100+ modelos, mobile-friendly, licença simples | simples demais para elementos hero e reconhecível em massa | `HOLD`: distante, colisor ou fallback; não base visual |
+| [Simple Nature Pack](https://quaternius.com/packs/simplenature.html) | Quaternius   | CC0     | Quaternius; grátis                                | FBX, OBJ, Blend                 | não publicado; medir na conversão | insuficiente para o benchmark    | média: conversão necessária   | apenas 13 modelos e baixa complexidade         | não alcança stylized 3D environment                        | `REJECT`: pode existir apenas como blockout invisível  |
 
 ## Natureza e percurso
 
@@ -22,7 +22,7 @@
 | [Stairs Closed](https://poly.pizza/m/8XelTCFdjJ) | Kenney       | CC0     | Poly Pizza; grátis | FBX, glTF | não publicado com rótulo confiável; medir | média     | alta de formato | módulo simples, fechado e provável collider trivial | escada é menos acessível que rampa; leitura de kit modular   | fallback técnico, nunca preferência de percurso                                |
 | [Crystal](https://poly.pizza/m/Wj8Qjq38T8)       | iPoly3D      | CC0     | Poly Pizza; grátis | FBX, glTF | não publicado com rótulo confiável; medir | média     | alta de formato | forma mineral simples                               | risco alto de magia, loot e brilho genérico                  | aprovado só para teste como mineral fosco; reprova ao parecer recompensa       |
 
-Rochas, árvores, grama e arbustos ainda não têm registros individuais porque serão escolhidos **dentro** do KayKit Forest após inspeção do archive. O pack não autoriza todos os modelos; o limite é oito candidatos internos.
+Rochas, árvores, grama e arbustos serão escolhidos somente depois da rota do Visual Benchmark ser autorizada. Nenhum archive possui download implícito.
 
 ## Props e observação
 
