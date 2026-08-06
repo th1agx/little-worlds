@@ -16,6 +16,10 @@ test("starts the temporary experience and exposes calibration", async ({ page })
 
   await page.getByRole("button", { name: "Legacy" }).click();
   await expect(page.getByText("Modelo: legacy")).toBeVisible();
+  await page.getByRole("button", { name: "Projetos" }).click();
+  await expect(page.getByText("Cena: projects")).toBeVisible();
+  await page.getByRole("button", { name: "Hub" }).click();
+  await expect(page.getByText("Cena: hub")).toBeVisible();
   const speed = page.getByTestId("calibration-walkSpeed");
   await speed.fill("6");
   await expect(speed).toHaveValue("6");

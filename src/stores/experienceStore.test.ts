@@ -4,6 +4,9 @@ import { useExperienceStore } from "@/stores/experienceStore";
 
 afterEach(() => {
   useExperienceStore.setState({
+    activeSceneId: "hub",
+    transitionTarget: null,
+    transitionPhase: "idle",
     locomotionModel: "controlled-levitation",
     locomotionTuning: { ...CONTROLLED_LEVITATION_DEFAULTS },
   });
@@ -26,5 +29,16 @@ describe("locomotion calibration store", () => {
     useExperienceStore.getState().updatePreferences({ reducedMotion: true });
     expect(useExperienceStore.getState().preferences.reducedMotion).toBe(true);
     expect(useExperienceStore.getState().locomotionTuning.baseHoverHeight).toBe(0.15);
+  });
+
+  it("transitions between vertical-slice scenes through a short explicit phase", () => {
+    const store = useExperienceStore.getState();
+    store.requestSceneTransition("projects");
+    expect(useExperienceStore.getState().transitionPhase).toBe("out");
+    store.advanceSceneTransition();
+    expect(useExperienceStore.getState().activeSceneId).toBe("projects");
+    expect(useExperienceStore.getState().transitionPhase).toBe("in");
+    store.advanceSceneTransition();
+    expect(useExperienceStore.getState().transitionPhase).toBe("idle");
   });
 });
