@@ -49,14 +49,14 @@ button {
   opacity: 0.82;
 }
 
-.portal-prompt {
+.threshold-prompt {
   bottom: 1.4rem;
   left: 50%;
   position: fixed;
   transform: translateX(-50%);
   z-index: 2;
 }
-.portal-prompt button {
+.threshold-prompt button {
   background: color-mix(in srgb, #263b59 78%, transparent);
   border: 1px solid color-mix(in srgb, #f2bc5b 60%, transparent);
   border-radius: 999px;
@@ -65,7 +65,7 @@ button {
   font-size: 0.9rem;
   padding: 0.55rem 0.9rem;
 }
-.portal-prompt kbd {
+.threshold-prompt kbd {
   background: #f2bc5b;
   border-radius: 4px;
   color: #263b59;

@@ -1,12 +1,36 @@
 "use client";
 
-import {
-  FutureBeacon,
-  GrassCluster,
-  LowPolyRock,
-} from "@/features/world/components/BlockoutElements";
+import { GrassCluster, LowPolyRock } from "@/features/world/components/BlockoutElements";
 import { PlaceholderSky } from "@/features/world/components/PlaceholderSky";
-import { PortalGateway } from "@/features/world/portals/PortalGateway";
+import {
+  DistantThresholdSignal,
+  ThresholdPhenomenon,
+} from "@/features/world/thresholds/ThresholdPhenomenon";
+
+const projectsThreshold = {
+  id: "limiar-hub-projects",
+  destination: "projects",
+  label: "Atravessar para Projetos",
+  palette: { core: "#f7e9cf", glow: "#f2bc5b", atmosphere: "#ce714a" },
+} as const;
+
+const distantSignals = [
+  {
+    position: [-10, 1.85, -12.6] as [number, number, number],
+    palette: { core: "#e8cfa7", glow: "#78658d", atmosphere: "#5f587b" },
+    scale: 0.9,
+  },
+  {
+    position: [9.2, 1.6, -12.1] as [number, number, number],
+    palette: { core: "#f7e9cf", glow: "#e8cfa7", atmosphere: "#b77779" },
+    scale: 0.78,
+  },
+  {
+    position: [13.4, 1.45, -1.6] as [number, number, number],
+    palette: { core: "#e8cfa7", glow: "#7d8f61", atmosphere: "#9c7b67" },
+    scale: 0.68,
+  },
+] as const;
 
 export default function HubScene() {
   return (
@@ -35,10 +59,7 @@ export default function HubScene() {
         <boxGeometry args={[3.1, 0.05, 7.1]} />
         <meshStandardMaterial color="#d6ad74" roughness={0.92} />
       </mesh>
-      <PortalGateway
-        descriptor={{ id: "hub-to-projects", destination: "projects", label: "Explorar Projetos" }}
-        position={[0, 0, -10.8]}
-      />
+      <ThresholdPhenomenon descriptor={projectsThreshold} position={[0, 0, -10.8]} />
       {[
         [-1.86, 0.18, -3.9],
         [1.86, 0.18, -3.9],
@@ -50,9 +71,14 @@ export default function HubScene() {
           <meshStandardMaterial color="#9c7b67" flatShading roughness={0.96} />
         </mesh>
       ))}
-      <FutureBeacon position={[8.8, 0, -10.5]} color="#ce714a" />
-      <FutureBeacon position={[-10, 0, -11]} color="#78658d" />
-      <FutureBeacon position={[13, 0, 0]} color="#f2bc5b" />
+      {distantSignals.map((signal) => (
+        <DistantThresholdSignal
+          key={signal.position.join("-")}
+          palette={signal.palette}
+          position={signal.position}
+          scale={signal.scale}
+        />
+      ))}
       <LowPolyRock position={[-3.4, 0.55, 2.2]} scale={1.25} />
       <LowPolyRock position={[6.7, 0.38, -3.2]} scale={0.72} />
       <LowPolyRock position={[-12.2, 0.42, -2.6]} scale={0.88} />
