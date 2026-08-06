@@ -8,6 +8,7 @@ test("starts the temporary experience and exposes calibration", async ({ page })
   await expect(page.locator("canvas")).toBeVisible();
 
   await page.getByRole("button", { name: /Iniciar/ }).click();
+  await page.keyboard.press("F3");
   await expect(page.getByRole("button", { name: /Controles temporários/ })).toBeVisible();
   await page.evaluate(() => document.exitPointerLock());
   await expect(page.getByRole("button", { name: /Retomar experiência/ })).toBeVisible();

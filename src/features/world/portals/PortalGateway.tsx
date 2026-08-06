@@ -21,7 +21,10 @@ interface PortalGatewayProps {
  */
 export function PortalGateway({ descriptor, position }: PortalGatewayProps) {
   const portalLight = useRef<PointLight>(null);
-  const veilMaterial = useRef<MeshStandardMaterial>(null);
+  const frontVeilMaterial = useRef<MeshStandardMaterial>(null);
+  const middleVeilMaterial = useRef<MeshStandardMaterial>(null);
+  const rearVeilMaterial = useRef<MeshStandardMaterial>(null);
+  const floorGlowMaterial = useRef<MeshStandardMaterial>(null);
   const phase = useRef<PortalPhase>("dormant");
   const deactivationDeadline = useRef<number | null>(null);
   const setPortalState = useExperienceStore((state) => state.setPortalState);
@@ -68,7 +71,7 @@ export function PortalGateway({ descriptor, position }: PortalGatewayProps) {
           : phase.current === "aware"
             ? 0.62
             : 0.16;
-    const veilTarget =
+    const frontVeilTarget =
       phase.current === "transitioning"
         ? 0.34
         : phase.current === "ready"
@@ -76,6 +79,8 @@ export function PortalGateway({ descriptor, position }: PortalGatewayProps) {
           : phase.current === "aware"
             ? 0.1
             : 0.025;
+    const middleVeilTarget = frontVeilTarget * 0.62;
+    const rearVeilTarget = frontVeilTarget * 0.38;
     if (portalLight.current) {
       portalLight.current.intensity = MathUtils.damp(
         portalLight.current.intensity,
@@ -84,20 +89,24 @@ export function PortalGateway({ descriptor, position }: PortalGatewayProps) {
         delta,
       );
     }
-    if (veilMaterial.current) {
-      veilMaterial.current.opacity = MathUtils.damp(
-        veilMaterial.current.opacity,
-        veilTarget,
+    const animateMaterial = (
+      material: MeshStandardMaterial | null,
+      opacityTarget: number,
+      emissionScale: number,
+    ) => {
+      if (!material) return;
+      material.opacity = MathUtils.damp(material.opacity, opacityTarget, 5, delta);
+      material.emissiveIntensity = MathUtils.damp(
+        material.emissiveIntensity,
+        lightTarget * emissionScale,
         5,
         delta,
       );
-      veilMaterial.current.emissiveIntensity = MathUtils.damp(
-        veilMaterial.current.emissiveIntensity,
-        lightTarget * 0.32,
-        5,
-        delta,
-      );
-    }
+    };
+    animateMaterial(frontVeilMaterial.current, frontVeilTarget, 0.32);
+    animateMaterial(middleVeilMaterial.current, middleVeilTarget, 0.2);
+    animateMaterial(rearVeilMaterial.current, rearVeilTarget, 0.11);
+    animateMaterial(floorGlowMaterial.current, frontVeilTarget * 0.34, 0.08);
   });
 
   return (
@@ -120,15 +129,58 @@ export function PortalGateway({ descriptor, position }: PortalGatewayProps) {
         <boxGeometry args={[2.74, 0.09, 0.08]} />
         <meshStandardMaterial color="#ce714a" emissive="#ce714a" emissiveIntensity={0.24} />
       </mesh>
+      <mesh position={[0, 0.145, 0.4]} rotation={[-Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[2.05, 32]} />
+        <meshStandardMaterial
+          ref={floorGlowMaterial}
+          color="#f2bc5b"
+          depthWrite={false}
+          emissive="#f2bc5b"
+          emissiveIntensity={0.01}
+          opacity={0.012}
+          roughness={1}
+          transparent
+        />
+      </mesh>
+      <mesh position={[0, 1.7, -0.7]}>
+        <boxGeometry args={[2.25, 2.66, 0.07]} />
+        <meshStandardMaterial color="#78658d" depthWrite={false} opacity={0.18} transparent />
+      </mesh>
       <mesh position={[0, 1.7, 0.06]}>
         <boxGeometry args={[2.38, 2.7, 0.055]} />
         <meshStandardMaterial
-          ref={veilMaterial}
+          ref={frontVeilMaterial}
           color="#f2bc5b"
           emissive="#f2bc5b"
           emissiveIntensity={0.06}
           opacity={0.025}
           roughness={0.72}
+          transparent
+        />
+      </mesh>
+      <mesh position={[0.13, 1.78, -0.24]}>
+        <boxGeometry args={[2.12, 2.42, 0.045]} />
+        <meshStandardMaterial
+          ref={middleVeilMaterial}
+          color="#e8cfa7"
+          depthWrite={false}
+          emissive="#d9943d"
+          emissiveIntensity={0.04}
+          opacity={0.015}
+          roughness={0.8}
+          transparent
+        />
+      </mesh>
+      <mesh position={[-0.08, 1.64, -0.48]}>
+        <boxGeometry args={[1.82, 2.1, 0.04]} />
+        <meshStandardMaterial
+          ref={rearVeilMaterial}
+          color="#f2bc5b"
+          depthWrite={false}
+          emissive="#f2bc5b"
+          emissiveIntensity={0.02}
+          opacity={0.01}
+          roughness={0.9}
           transparent
         />
       </mesh>

@@ -191,6 +191,13 @@ button {
   top: 1rem;
   width: min(19rem, calc(100vw - 2rem));
 }
+.development-panel--compact {
+  font-size: 0.68rem;
+  gap: 0.18rem;
+  max-height: none;
+  padding: 0.5rem 0.6rem;
+  width: auto;
+}
 .development-panel div {
   display: flex;
   gap: 0.4rem;
