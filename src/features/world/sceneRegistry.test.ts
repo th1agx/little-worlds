@@ -3,11 +3,12 @@ import { getRegisteredSceneIds, getSceneDefinition } from "@/features/world/scen
 
 describe("scene registry", () => {
   it("registers the two vertical-slice blockout scenes", () => {
-    expect(getRegisteredSceneIds()).toEqual(["hub", "projects"]);
+    expect(getRegisteredSceneIds()).toEqual(["hub", "projects", "benchmark"]);
   });
 
   it("exposes a lazy scene boundary", () => {
     expect(getSceneDefinition("hub").component).toBeDefined();
     expect(getSceneDefinition("projects").component).toBeDefined();
+    expect(getSceneDefinition("benchmark").component).toBeDefined();
   });
 });

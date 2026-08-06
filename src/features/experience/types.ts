@@ -34,6 +34,11 @@ export interface DevelopmentMetrics {
   hoverState: HoverState;
   dampingIntensity: number;
   locomotionModel: LocomotionModel;
+  drawCalls: number;
+  triangles: number;
+  geometries: number;
+  textures: number;
+  programs: number;
 }
 
 export interface LocomotionCalibration {

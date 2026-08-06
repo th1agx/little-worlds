@@ -10,6 +10,10 @@ const sceneDefinitions: Record<SceneId, SceneDefinition> = {
     id: "projects",
     component: lazy(() => import("@/features/world/scenes/projects/ProjectsScene")),
   },
+  benchmark: {
+    id: "benchmark",
+    component: lazy(() => import("@/features/world/scenes/benchmark/BenchmarkScene")),
+  },
 };
 
 export function getSceneDefinition(sceneId: SceneId): SceneDefinition {

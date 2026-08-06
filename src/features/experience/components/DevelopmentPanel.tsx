@@ -126,6 +126,11 @@ export function DevelopmentPanel() {
       <span>Solo: {metrics.grounded ? "sim" : "não"}</span>
       <span>Movimento: {metrics.locomotion}</span>
       <span>Áudio: {metrics.audioActive ? "ativo" : "mudo"}</span>
+      <span>Draw calls: {metrics.drawCalls}</span>
+      <span>Triângulos: {metrics.triangles}</span>
+      <span>Geometrias: {metrics.geometries}</span>
+      <span>Texturas: {metrics.textures}</span>
+      <span>Programas: {metrics.programs}</span>
       <span>Velocidade: {metrics.speed.toFixed(2)} m/s</span>
       <span>Altura de suspensão: {metrics.hoverHeight.toFixed(3)} m</span>
       <span>Vel. vertical: {metrics.verticalVelocity.toFixed(2)} m/s</span>
@@ -137,6 +142,9 @@ export function DevelopmentPanel() {
         </button>
         <button onClick={() => requestSceneTransition("projects")} type="button">
           Projetos
+        </button>
+        <button onClick={() => requestSceneTransition("benchmark")} type="button">
+          Benchmark
         </button>
       </div>
       <hr />

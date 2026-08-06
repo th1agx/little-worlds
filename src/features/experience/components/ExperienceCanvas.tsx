@@ -26,6 +26,7 @@ export function ExperienceCanvas() {
         dpr={[1, 1.5]}
         gl={createRenderPipeline}
         onCreated={(state) => setCanvas(state.gl.domElement)}
+        shadows
       >
         <CameraManager>
           {canvas ? <PointerLockManager canvas={canvas} /> : null}

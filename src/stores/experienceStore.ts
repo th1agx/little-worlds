@@ -80,6 +80,11 @@ export const useExperienceStore = create<ExperienceState>((set) => ({
     hoverState: "grounded-hover",
     dampingIntensity: 0,
     locomotionModel: "controlled-levitation",
+    drawCalls: 0,
+    triangles: 0,
+    geometries: 0,
+    textures: 0,
+    programs: 0,
   },
   beginExperience: () => set({ mode: "exploring" }),
   selectScene: (sceneId) =>
