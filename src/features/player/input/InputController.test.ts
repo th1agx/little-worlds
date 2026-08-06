@@ -9,6 +9,7 @@ describe("InputController", () => {
       look: { x: 0, y: 0 },
       movement: { forward: 0, right: 0, fastStep: false },
       jumpRequested: false,
+      interactRequested: false,
     });
   });
 });

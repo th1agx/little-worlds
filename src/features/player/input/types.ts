@@ -1,5 +1,5 @@
 export type InputAction =
-  "moveForward" | "moveBackward" | "moveLeft" | "moveRight" | "fastStep" | "jump";
+  "moveForward" | "moveBackward" | "moveLeft" | "moveRight" | "fastStep" | "jump" | "interact";
 
 export interface MovementInput {
   forward: number;
@@ -16,6 +16,7 @@ export interface InputSnapshot {
   look: LookInput;
   movement: MovementInput;
   jumpRequested: boolean;
+  interactRequested: boolean;
 }
 
 /**

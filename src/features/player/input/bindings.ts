@@ -12,4 +12,6 @@ export const defaultKeyboardBindings: Readonly<Record<string, InputAction>> = {
   ShiftLeft: "fastStep",
   ShiftRight: "fastStep",
   Space: "jump",
+  KeyE: "interact",
+  Enter: "interact",
 };

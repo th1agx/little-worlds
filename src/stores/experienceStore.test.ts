@@ -7,6 +7,8 @@ afterEach(() => {
     activeSceneId: "hub",
     transitionTarget: null,
     transitionPhase: "idle",
+    portal: null,
+    portalPhase: "dormant",
     locomotionModel: "controlled-levitation",
     locomotionTuning: { ...CONTROLLED_LEVITATION_DEFAULTS },
   });
@@ -40,5 +42,18 @@ describe("locomotion calibration store", () => {
     expect(useExperienceStore.getState().transitionPhase).toBe("in");
     store.advanceSceneTransition();
     expect(useExperienceStore.getState().transitionPhase).toBe("idle");
+  });
+
+  it("only activates the scene transition from a ready portal", () => {
+    const store = useExperienceStore.getState();
+    store.setPortalState(
+      { id: "hub-to-projects", destination: "projects", label: "Explorar Projetos" },
+      "ready",
+    );
+    store.requestPortalActivation();
+
+    expect(useExperienceStore.getState().portalPhase).toBe("transitioning");
+    expect(useExperienceStore.getState().transitionTarget).toBe("projects");
+    expect(useExperienceStore.getState().transitionPhase).toBe("out");
   });
 });

@@ -4,10 +4,9 @@ import {
   FutureBeacon,
   GrassCluster,
   LowPolyRock,
-  OpenPavilion,
-  PlaceholderTerminal,
 } from "@/features/world/components/BlockoutElements";
 import { PlaceholderSky } from "@/features/world/components/PlaceholderSky";
+import { PortalGateway } from "@/features/world/portals/PortalGateway";
 
 export default function HubScene() {
   return (
@@ -21,13 +20,14 @@ export default function HubScene() {
         <cylinderGeometry args={[20, 22, 1, 64]} />
         <meshStandardMaterial color="#b79a61" roughness={0.97} flatShading />
       </mesh>
-      <mesh position={[0, 0.025, -6.4]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-        <ringGeometry args={[2.65, 3.1, 48]} />
-        <meshStandardMaterial color="#d9943d" roughness={0.86} />
+      <mesh position={[0, 0.025, -6.4]} receiveShadow>
+        <boxGeometry args={[3.1, 0.05, 7.1]} />
+        <meshStandardMaterial color="#d6ad74" roughness={0.92} />
       </mesh>
-      <OpenPavilion position={[0, 0, -10.8]}>
-        <PlaceholderTerminal position={[0, 0.3, 0]} />
-      </OpenPavilion>
+      <PortalGateway
+        descriptor={{ id: "hub-to-projects", destination: "projects", label: "Explorar Projetos" }}
+        position={[0, 0, -10.8]}
+      />
       <FutureBeacon position={[8.8, 0, -10.5]} color="#ce714a" />
       <FutureBeacon position={[-10, 0, -11]} color="#78658d" />
       <FutureBeacon position={[13, 0, 0]} color="#f2bc5b" />

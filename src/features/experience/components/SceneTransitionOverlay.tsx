@@ -9,7 +9,7 @@ export function SceneTransitionOverlay() {
 
   useEffect(() => {
     if (phase === "idle") return;
-    const duration = phase === "out" ? 180 : 260;
+    const duration = phase === "out" ? 400 : 280;
     const timer = window.setTimeout(advance, duration);
     return () => window.clearTimeout(timer);
   }, [advance, phase]);

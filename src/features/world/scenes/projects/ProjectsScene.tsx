@@ -7,6 +7,7 @@ import {
   PlaceholderTerminal,
 } from "@/features/world/components/BlockoutElements";
 import { PlaceholderSky } from "@/features/world/components/PlaceholderSky";
+import { PortalGateway } from "@/features/world/portals/PortalGateway";
 
 export default function ProjectsScene() {
   return (
@@ -38,6 +39,10 @@ export default function ProjectsScene() {
         <boxGeometry args={[4.02, 0.14, 0.2]} />
         <meshStandardMaterial color="#d9943d" roughness={0.72} />
       </mesh>
+      <PortalGateway
+        descriptor={{ id: "projects-to-hub", destination: "hub", label: "Voltar ao Limiar" }}
+        position={[0, 0, -7.45]}
+      />
       <OpenPavilion position={[0, 0.35, -16]}>
         <PlaceholderTerminal position={[0, 0.3, 0.4]} />
       </OpenPavilion>

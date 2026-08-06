@@ -26,3 +26,25 @@ test("starts the temporary experience and exposes calibration", async ({ page })
   await page.getByRole("button", { name: /Restaurar valores propostos/ }).click();
   await expect(speed).toHaveValue("4");
 });
+
+test("travels through the diegetic portals without the development panel", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: /Iniciar/ }).click();
+  await page.locator("canvas").click();
+
+  await page.keyboard.down("KeyW");
+  await expect(page.getByRole("button", { name: /Explorar Projetos/ })).toBeVisible({
+    timeout: 12000,
+  });
+  await page.keyboard.up("KeyW");
+  await page.keyboard.press("KeyE");
+  await expect(page.getByTestId("experience-canvas")).toHaveAttribute("data-scene-id", "projects");
+
+  await page.keyboard.down("KeyW");
+  await expect(page.getByRole("button", { name: /Voltar ao Limiar/ })).toBeVisible({
+    timeout: 12000,
+  });
+  await page.keyboard.up("KeyW");
+  await page.keyboard.press("KeyE");
+  await expect(page.getByTestId("experience-canvas")).toHaveAttribute("data-scene-id", "hub");
+});

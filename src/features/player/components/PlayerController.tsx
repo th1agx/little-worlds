@@ -31,10 +31,12 @@ export function PlayerController() {
   const sceneId = useExperienceStore((state) => state.activeSceneId);
   const mode = useExperienceStore((state) => state.mode);
   const pointerLocked = useExperienceStore((state) => state.pointerLocked);
+  const transitionPhase = useExperienceStore((state) => state.transitionPhase);
   const preferences = useExperienceStore((state) => state.preferences);
   const locomotionModel = useExperienceStore((state) => state.locomotionModel);
   const locomotionTuning = useExperienceStore((state) => state.locomotionTuning);
   const signalLanding = useExperienceStore((state) => state.signalLanding);
+  const requestPortalActivation = useExperienceStore((state) => state.requestPortalActivation);
   const updateMetrics = useExperienceStore((state) => state.updateMetrics);
   const targetYaw = useRef(0);
   const targetPitch = useRef(0);
@@ -71,8 +73,15 @@ export function PlayerController() {
   }, [camera, locomotionTuning.baseHoverHeight, sceneId]);
 
   useFrame((state, delta) => {
-    if (!initialized.current || mode !== "exploring" || !pointerLocked) return;
+    if (
+      !initialized.current ||
+      mode !== "exploring" ||
+      !pointerLocked ||
+      transitionPhase !== "idle"
+    )
+      return;
     const snapshot = input.snapshot();
+    if (snapshot.interactRequested) requestPortalActivation();
     targetYaw.current -= snapshot.look.x * preferences.mouseSensitivity;
     targetPitch.current = Math.max(
       MIN_PITCH,

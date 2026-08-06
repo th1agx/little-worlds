@@ -42,11 +42,37 @@ button {
   opacity: 0;
   pointer-events: none;
   position: fixed;
-  transition: opacity 180ms ease-in-out;
+  transition: opacity 400ms ease-in-out;
   z-index: 1;
 }
 .scene-transition--out {
   opacity: 0.82;
+}
+
+.portal-prompt {
+  bottom: 1.4rem;
+  left: 50%;
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.portal-prompt button {
+  background: color-mix(in srgb, #263b59 78%, transparent);
+  border: 1px solid color-mix(in srgb, #f2bc5b 60%, transparent);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgb(38 59 89 / 28%);
+  color: #f7e9cf;
+  font-size: 0.9rem;
+  padding: 0.55rem 0.9rem;
+}
+.portal-prompt kbd {
+  background: #f2bc5b;
+  border-radius: 4px;
+  color: #263b59;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-left: 0.35rem;
+  padding: 0.12rem 0.28rem;
 }
 
 .welcome-panel,
