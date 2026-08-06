@@ -24,7 +24,12 @@ const MIN_PITCH = -Math.PI / 2.2;
 const MAX_PITCH = Math.PI / 2.2;
 const HUB_BOUNDS = createBoundedCollisionAdapter({ minX: -18, maxX: 18, minZ: -18, maxZ: 18 });
 const PROJECTS_BOUNDS = createBoundedCollisionAdapter({ minX: -14, maxX: 14, minZ: -20, maxZ: 14 });
-const BENCHMARK_BOUNDS = createBoundedCollisionAdapter({ minX: -14, maxX: 14, minZ: -14, maxZ: 14 });
+const BENCHMARK_BOUNDS = createBoundedCollisionAdapter({
+  minX: -14,
+  maxX: 14,
+  minZ: -14,
+  maxZ: 14,
+});
 
 export function PlayerController() {
   const input = useInputController();

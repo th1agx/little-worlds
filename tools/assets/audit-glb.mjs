@@ -61,7 +61,10 @@ function inspect(document, filePath, bytes) {
   const triangles = primitives.map((primitive) => getTriangleCount(primitive, accessors));
   const positions = primitives.reduce(
     (total, primitive) =>
-      total + (primitive.attributes.POSITION === undefined ? 0 : accessors[primitive.attributes.POSITION].count),
+      total +
+      (primitive.attributes.POSITION === undefined
+        ? 0
+        : accessors[primitive.attributes.POSITION].count),
     0,
   );
 
@@ -71,7 +74,9 @@ function inspect(document, filePath, bytes) {
     meshes: meshes.length,
     primitives: primitives.length,
     vertices: positions,
-    triangles: triangles.includes(null) ? null : triangles.reduce((total, value) => total + value, 0),
+    triangles: triangles.includes(null)
+      ? null
+      : triangles.reduce((total, value) => total + value, 0),
     materials: materials.size,
     textures: (document.textures ?? []).length,
     images: (document.images ?? []).length,
