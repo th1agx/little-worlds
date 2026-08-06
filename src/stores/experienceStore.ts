@@ -10,6 +10,7 @@ import {
   type LocomotionTuning,
 } from "@/features/player/locomotion/PlayerMotionModel";
 import type { SceneId } from "@/features/world/types";
+import type { PortalDescriptor, PortalPhase } from "@/features/world/portals/types";
 
 const defaultPreferences: ExperiencePreferences = {
   audioEnabled: false,
@@ -22,6 +23,10 @@ const defaultPreferences: ExperiencePreferences = {
 
 interface ExperienceState {
   activeSceneId: SceneId;
+  transitionTarget: SceneId | null;
+  transitionPhase: "idle" | "out" | "in";
+  portal: PortalDescriptor | null;
+  portalPhase: PortalPhase;
   mode: ExperienceMode;
   pointerLocked: boolean;
   preferences: ExperiencePreferences;
@@ -31,6 +36,11 @@ interface ExperienceState {
   metrics: DevelopmentMetrics;
   beginExperience: () => void;
   selectScene: (sceneId: SceneId) => void;
+  requestSceneTransition: (sceneId: SceneId) => void;
+  setPortalState: (portal: PortalDescriptor, phase: PortalPhase) => void;
+  clearPortal: (portalId: string) => void;
+  requestPortalActivation: () => void;
+  advanceSceneTransition: () => void;
   setPointerLocked: (pointerLocked: boolean) => void;
   updatePreferences: (patch: Partial<ExperiencePreferences>) => void;
   signalLanding: () => void;
@@ -42,6 +52,10 @@ interface ExperienceState {
 
 export const useExperienceStore = create<ExperienceState>((set) => ({
   activeSceneId: "hub",
+  transitionTarget: null,
+  transitionPhase: "idle",
+  portal: null,
+  portalPhase: "dormant",
   mode: "welcome",
   pointerLocked: false,
   preferences: defaultPreferences,
@@ -60,7 +74,7 @@ export const useExperienceStore = create<ExperienceState>((set) => ({
     airborneTime: 0,
     jumpDistance: 0,
     angularVelocity: 0,
-    hoverHeight: 0.08,
+    hoverHeight: CONTROLLED_LEVITATION_DEFAULTS.baseHoverHeight,
     verticalVelocity: 0,
     hoverAmplitude: 0,
     hoverState: "grounded-hover",
@@ -70,6 +84,43 @@ export const useExperienceStore = create<ExperienceState>((set) => ({
   beginExperience: () => set({ mode: "exploring" }),
   selectScene: (sceneId) =>
     set((state) => ({ activeSceneId: sceneId, metrics: { ...state.metrics, sceneId } })),
+  requestSceneTransition: (sceneId) =>
+    set((state) =>
+      state.activeSceneId === sceneId
+        ? state
+        : { transitionTarget: sceneId, transitionPhase: "out" },
+    ),
+  setPortalState: (portal, portalPhase) =>
+    set((state) =>
+      state.portal?.id === portal.id && state.portalPhase === portalPhase
+        ? state
+        : { portal, portalPhase },
+    ),
+  clearPortal: (portalId) =>
+    set((state) =>
+      state.portal?.id === portalId ? { portal: null, portalPhase: "dormant" } : state,
+    ),
+  requestPortalActivation: () =>
+    set((state) =>
+      state.portal && state.portalPhase === "ready"
+        ? {
+            portalPhase: "transitioning",
+            transitionTarget: state.portal.destination,
+            transitionPhase: "out",
+          }
+        : state,
+    ),
+  advanceSceneTransition: () =>
+    set((state) => {
+      if (state.transitionPhase === "out" && state.transitionTarget) {
+        return {
+          activeSceneId: state.transitionTarget,
+          metrics: { ...state.metrics, sceneId: state.transitionTarget },
+          transitionPhase: "in",
+        };
+      }
+      return { transitionTarget: null, transitionPhase: "idle" };
+    }),
   setPointerLocked: (pointerLocked) =>
     set((state) => ({ pointerLocked, metrics: { ...state.metrics, pointerLocked } })),
   updatePreferences: (patch) =>

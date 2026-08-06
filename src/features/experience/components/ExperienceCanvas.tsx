@@ -16,7 +16,11 @@ export function ExperienceCanvas() {
   const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
 
   return (
-    <div className="experience-canvas">
+    <div
+      className="experience-canvas"
+      data-scene-id={activeSceneId}
+      data-testid="experience-canvas"
+    >
       <Canvas
         camera={{ fov: 70, near: 0.1, far: 250, position: [0, 1.65, 5] }}
         dpr={[1, 1.5]}

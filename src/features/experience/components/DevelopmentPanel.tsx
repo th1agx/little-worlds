@@ -81,7 +81,7 @@ function ModelButton({
 
 export function DevelopmentPanel() {
   const metrics = useExperienceStore((state) => state.metrics);
-  const selectScene = useExperienceStore((state) => state.selectScene);
+  const requestSceneTransition = useExperienceStore((state) => state.requestSceneTransition);
   const locomotionModel = useExperienceStore((state) => state.locomotionModel);
   const tuning = useExperienceStore((state) => state.locomotionTuning);
   const setLocomotionModel = useExperienceStore((state) => state.setLocomotionModel);
@@ -106,11 +106,11 @@ export function DevelopmentPanel() {
       <span>Tempo no ar: {metrics.airborneTime.toFixed(2)} s</span>
       <span>Distância do impulso: {metrics.jumpDistance.toFixed(2)} m</span>
       <div>
-        <button onClick={() => selectScene("hub")} type="button">
+        <button onClick={() => requestSceneTransition("hub")} type="button">
           Hub
         </button>
-        <button onClick={() => selectScene("test")} type="button">
-          Cena técnica
+        <button onClick={() => requestSceneTransition("projects")} type="button">
+          Projetos
         </button>
       </div>
       <hr />

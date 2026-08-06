@@ -1,6 +1,6 @@
 import type { ComponentType, LazyExoticComponent } from "react";
 
-export const sceneIds = ["hub", "test"] as const;
+export const sceneIds = ["hub", "projects"] as const;
 
 export type SceneId = (typeof sceneIds)[number];
 

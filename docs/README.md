@@ -24,6 +24,7 @@ O estado da base executável e seus limites estão em [`02-architecture/BOOTSTRA
 | Engenharia | [`03-design/ASSETS.md`](03-design/ASSETS.md) | candidatos e pipeline de assets |
 | Engenharia | [`03-design/PERFORMANCE.md`](03-design/PERFORMANCE.md) | budgets e degradação adaptativa |
 | Produção | [`04-production/QUALITY.md`](04-production/QUALITY.md) | estratégia de testes e gates |
+| Produção | [`04-production/CI_CD_AND_DEPLOYMENT.md`](04-production/CI_CD_AND_DEPLOYMENT.md) | workflows, diagnóstico e checklist Vercel |
 | Produção | [`04-production/ROADMAP.md`](04-production/ROADMAP.md) | versões e entregas |
 | Produção | [`04-production/SPRINT_1_READINESS.md`](04-production/SPRINT_1_READINESS.md) | checklist antes da implementação |
 | Produção | [`04-production/vertical-slice/VERTICAL_SLICE.md`](04-production/vertical-slice/VERTICAL_SLICE.md) | escopo, gates e sucesso do primeiro Slice |

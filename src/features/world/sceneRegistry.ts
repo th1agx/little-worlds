@@ -6,9 +6,9 @@ const sceneDefinitions: Record<SceneId, SceneDefinition> = {
     id: "hub",
     component: lazy(() => import("@/features/world/scenes/hub/HubScene")),
   },
-  test: {
-    id: "test",
-    component: lazy(() => import("@/features/world/scenes/test/TestScene")),
+  projects: {
+    id: "projects",
+    component: lazy(() => import("@/features/world/scenes/projects/ProjectsScene")),
   },
 };
 

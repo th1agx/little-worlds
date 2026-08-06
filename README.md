@@ -1,30 +1,41 @@
 # Portfólio Universo
 
-Portfólio web contemplativo em primeira pessoa. O espaço 3D cria emoção; terminais acessíveis apresentam o conteúdo profissional.
+Portfólio web contemplativo em primeira pessoa. O mundo 3D cria presença e emoção; o conteúdo profissional futuro será entregue por interfaces DOM acessíveis.
 
-## Estado
+## Estado atual
 
-`Sprint 1 — bootstrap técnico`. A aplicação local, o Canvas R3F, o pipeline de cenas e os gates de qualidade estão inicializados. Não há assets adquiridos, conteúdo, planetas, terminal ou interface de produto nesta entrega.
+O bootstrap técnico e a locomoção experimental estão concluídos. A CI/CD está configurada e o primeiro blockout visual do Vertical Slice está em desenvolvimento. O visual continua experimental: não há assets finais, terminal funcional ou conteúdo profissional publicado.
 
 ## Executar localmente
 
 Requer Node `24.19.0` e pnpm `10.34.5`.
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Consulte [`docs/02-architecture/BOOTSTRAP.md`](docs/02-architecture/BOOTSTRAP.md) para os limites técnicos e os comandos de validação.
+## Qualidade
 
-## Comece por aqui
+```bash
+pnpm format
+pnpm typecheck
+pnpm lint
+pnpm test
+pnpm test:e2e
+pnpm build
+```
+
+## Stack
+
+Next.js, TypeScript, React, React Three Fiber, Three.js, Zustand, Vitest e Playwright. O Canvas é persistente e as cenas são carregadas sob demanda.
+
+## Documentação
 
 1. [`docs/README.md`](docs/README.md) — mapa da documentação.
-2. [`docs/01-product/VISION.md`](docs/01-product/VISION.md) — visão, público e critérios de sucesso.
-3. [`docs/02-architecture/ARCHITECTURE.md`](docs/02-architecture/ARCHITECTURE.md) — arquitetura-alvo.
-4. [`docs/04-production/ROADMAP.md`](docs/04-production/ROADMAP.md) — roadmap e gates.
+2. [`docs/02-architecture/BOOTSTRAP.md`](docs/02-architecture/BOOTSTRAP.md) — contratos técnicos.
+3. [`docs/02-architecture/decisions/0011-controlled-levitation-calibration.md`](docs/02-architecture/decisions/0011-controlled-levitation-calibration.md) — calibração de locomoção.
+4. [`docs/04-production/CI_CD_AND_DEPLOYMENT.md`](docs/04-production/CI_CD_AND_DEPLOYMENT.md) — CI, diagnóstico e checklist Vercel.
 5. [`AGENTS.md`](AGENTS.md) — regras concisas para agentes de IA.
 
-## Princípio central
-
-O visitante nunca deve precisar dominar controles 3D para conhecer o profissional. A experiência imersiva é a camada de descoberta; conteúdo semântico, navegação alternativa e acessibilidade são requisitos do produto.
+O visitante nunca deve precisar dominar controles 3D para conhecer o profissional. A experiência imersiva é uma camada de descoberta; acessibilidade e rota 2D equivalente são requisitos do produto.

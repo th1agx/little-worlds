@@ -5,6 +5,8 @@ import { temporaryAudioController } from "@/features/audio/TemporaryAudioControl
 import { DevelopmentPanel } from "@/features/experience/components/DevelopmentPanel";
 import { ExperienceCanvas } from "@/features/experience/components/ExperienceCanvas";
 import { ExperienceControls } from "@/features/experience/components/ExperienceControls";
+import { PortalPrompt } from "@/features/experience/components/PortalPrompt";
+import { SceneTransitionOverlay } from "@/features/experience/components/SceneTransitionOverlay";
 import { requestExperiencePointerLock } from "@/features/experience/pointer-lock/pointerLockService";
 import { useExperienceStore } from "@/stores/experienceStore";
 
@@ -34,6 +36,8 @@ export function ExperienceShell() {
   return (
     <main className="experience-shell">
       <ExperienceCanvas />
+      <SceneTransitionOverlay />
+      {mode === "exploring" ? <PortalPrompt /> : null}
       {mode === "welcome" ? (
         <section aria-labelledby="welcome-title" className="welcome-panel">
           <p className="eyebrow">Protótipo técnico provisório</p>

@@ -12,6 +12,7 @@ export class InputController {
   private activeActions = new Set<InputAction>();
   private look: LookInput = { ...EMPTY_LOOK };
   private jumpRequested = false;
+  private interactRequested = false;
   private attached = false;
 
   attach(target: Window): void {
@@ -40,6 +41,7 @@ export class InputController {
       look: this.consumeLook(),
       movement: this.getMovement(),
       jumpRequested: this.consumeJump(),
+      interactRequested: this.consumeInteraction(),
     };
 
     return snapshot;
@@ -71,9 +73,16 @@ export class InputController {
     return requested;
   }
 
+  private consumeInteraction(): boolean {
+    const requested = this.interactRequested;
+    this.interactRequested = false;
+    return requested;
+  }
+
   private onKeyDown = (event: KeyboardEvent): void => {
     const action = defaultKeyboardBindings[event.code];
     if (action === "jump" && !event.repeat) this.jumpRequested = true;
+    if (action === "interact" && !event.repeat) this.interactRequested = true;
     if (action) this.activeActions.add(action);
   };
 
@@ -93,5 +102,6 @@ export class InputController {
     this.activeActions.clear();
     this.look = { ...EMPTY_LOOK };
     this.jumpRequested = false;
+    this.interactRequested = false;
   };
 }
