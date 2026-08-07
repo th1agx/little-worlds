@@ -1,6 +1,6 @@
 # Fila controlada de aquisição
 
-**Estado:** LMHPOLY validado para compra manual pelo Fab; nenhum download realizado
+**Estado:** rota gratuita ativa; compras e downloads pagos proibidos
 **Snapshot:** 2026-08-06
 
 Esta fila substitui a rodada de 2026-08-05. O pipeline, a quarentena e os gates permanecem inalterados. Computador, áudio e Limiar estão pausados; a única prioridade é provar o Visual Benchmark.

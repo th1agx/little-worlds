@@ -11,6 +11,7 @@ const sceneSpawns: Record<SceneId, SceneSpawn> = {
   projects: { x: 0, z: 5.5, yaw: 0 },
   benchmark: { x: 0, z: 11.5, yaw: 0 },
   "benchmark-v2": { x: 0, z: 11.8, yaw: 0 },
+  "benchmark-v3": { x: 0, z: 12.5, yaw: 0 },
 };
 
 export function getSceneSpawn(sceneId: SceneId): SceneSpawn {

@@ -7,7 +7,7 @@ export function getGroundHeight(sceneId: SceneId, x: number, z: number): number 
     return meadowRise - streamBank;
   }
 
-  if (sceneId === "benchmark-v2") {
+  if (sceneId === "benchmark-v2" || sceneId === "benchmark-v3") {
     const meadow = Math.sin(x * 0.22) * 0.13 + Math.cos(z * 0.16) * 0.1;
     const riverX = -3.6 + Math.sin((z + 4) * 0.2) * 1.1;
     const stream = Math.exp(-((x - riverX) ** 2) / 2.6) * 0.32;

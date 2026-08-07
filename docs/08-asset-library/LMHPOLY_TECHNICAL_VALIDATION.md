@@ -1,12 +1,15 @@
 # LMHPOLY — validação técnica para WebGL / R3F
 
-**Estado:** validação concluída; compra e download pendentes de autorização humana
+**Estado:** superseded pela rota gratuita; não comprar nem baixar LMHPOLY
 **Data:** 2026-08-06
 **Escopo:** pesquisa técnica e direção de arte. Nenhum arquivo foi comprado, baixado, convertido ou integrado.
 
 ## Veredito
 
-**GO COM RESSALVAS.**
+**SUPERSEDED — não é candidato de implementação.**
+
+Esta validação permanece como histórico técnico. A decisão de 2026-08-06 define
+uma rota gratuita; LMHPOLY não será comprado, baixado ou integrado.
 
 O **Stylized Poly Nature Environment** da LMHPOLY é uma fonte tecnicamente viável
 de malhas e texturas para uma fatia visual WebGL. A evidência oficial confirma

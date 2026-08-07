@@ -1,9 +1,12 @@
 # Plano de aquisição — LMHPOLY Stylized Poly Nature Environment
 
-**Estado:** pronto para compra manual; nenhum download, asset ou runtime criado
+**Estado:** superseded; compra e download proibidos nesta fase
 **Data:** 2026-08-06
 
-## Decisão de aquisição
+> Este plano não deve ser executado. A rota vigente é
+> [`FREE_VISUAL_STACK_V1.md`](FREE_VISUAL_STACK_V1.md).
+
+## Decisão de aquisição histórica
 
 | Campo              | Decisão                                                                                                                                                                                                        |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
