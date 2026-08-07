@@ -1,30 +1,29 @@
 # Fila controlada de aquisição
 
-**Estado:** Dreamscape validado como `NO-GO`; NatureForge aguarda esclarecimento de licença e autorização humana
+**Estado:** LMHPOLY validado para compra manual pelo Fab; nenhum download realizado
 **Snapshot:** 2026-08-06
 
 Esta fila substitui a rodada de 2026-08-05. O pipeline, a quarentena e os gates permanecem inalterados. Computador, áudio e Limiar estão pausados; a única prioridade é provar o Visual Benchmark.
 
 ## Gate 0 — decisão registrada antes de gastar ou baixar
 
-| Ordem | Candidato                  | Decisão/evidência                                                                   | Condição para avançar                             |
-| ----: | -------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------- |
-|     1 | Dreamscape Nature: Meadows | `NO-GO`: Unity não publica source Web; Fab entrega UEFN/Unreal referenced asset     | nenhuma; não comprar                              |
-|     2 | NatureForge Meadow & Farm  | glTF, FBX com/sem LOD, Blend e texturas confirmados; licença web precisa de clareza | confirmação escrita do autor + autorização humana |
+| Ordem | Candidato                                | Decisão/evidência                                                                                          | Condição para avançar                                                |
+| ----: | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+|     1 | LMHPOLY Stylized Poly Nature Environment | `OK`: Fab Standard permite modificar e distribuir assets incorporados em projeto; FBX declarado pelo autor | compra manual da edição source/Fab Standard e inspeção em quarentena |
 
-Gate 0 não cria arquivo local de asset. Capturas de licença e respostas do publisher só entram no ledger após a aprovação humana da aquisição.
+Gate 0 não cria arquivo local de asset. Capturas de licença só entram no ledger após a aprovação humana da aquisição.
 
-Detalhes, fontes e limites estão em [`DREAMSCAPE_ROUTE_VALIDATION.md`](DREAMSCAPE_ROUTE_VALIDATION.md).
+Detalhes, fontes e limites estão em [`LMHPOLY_TECHNICAL_VALIDATION.md`](LMHPOLY_TECHNICAL_VALIDATION.md) e [`LMHPOLY_ACQUISITION_PLAN.md`](LMHPOLY_ACQUISITION_PLAN.md).
 
 ## Rodada A — uma rota candidata, ainda bloqueada
 
 Autorizar **uma rota**, não todos os packs.
 
-| Rota             | Papel                        | Aquisição proposta        |                     Teto | Por que                                                                            |
-| ---------------- | ---------------------------- | ------------------------- | -----------------------: | ---------------------------------------------------------------------------------- |
-| Única, bloqueada | base técnica e visual curada | NatureForge Meadow & Farm | US$ 24 antes de impostos | glTF, FBX, Blend, texturas e LODs confirmados; Dreamscape falhou no gate de source |
+| Rota                           | Papel                        | Aquisição proposta                              |                                                         Teto | Por que                                                                |
+| ------------------------------ | ---------------------------- | ----------------------------------------------- | -----------------------------------------------------------: | ---------------------------------------------------------------------- |
+| Única, pronta para autorização | base técnica e visual curada | LMHPOLY Stylized Poly Nature Environment no Fab | preço exibido no checkout; ainda não confirmado publicamente | licença Web aceita, FBX declarado e biblioteca adequada ao quality bar |
 
-**Limite da primeira autorização:** um pack-base. NatureForge não é CC0 operacionalmente até o autor esclarecer a contradição entre o rótulo da página e o termo textual de não redistribuição. Um complemento só pode ser autorizado depois da inspeção mostrar uma lacuna objetiva. Promoção não muda esta regra.
+**Limite da primeira autorização:** um pack-base. Selecionar Fab Standard com source, não `Reference-Only`, e registrar preço/tier antes do pagamento. Um complemento só pode ser autorizado depois da inspeção mostrar uma lacuna objetiva. Promoção não muda esta regra.
 
 ## Rodada B — apenas depois do primeiro benchmark
 

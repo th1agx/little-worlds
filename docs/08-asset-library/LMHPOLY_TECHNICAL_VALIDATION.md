@@ -36,11 +36,65 @@ silhueta e a estratificação que faltaram no V2 —, mas o resultado das demos 
 | Licença de FBX/textura exportados | **PRECISA VALIDAR**         | A permissão técnica de usar FBX em outro motor não equivale, por si só, à autorização de redistribuir arquivos acessíveis no navegador.                                                                                                                                                                  |
 | Demo/documentação externa         | **Parcialmente confirmada** | A página principal e o Fab apontam vídeos/tutoriais. O link público da documentação Notion retornou indisponível na pesquisa; detalhes adicionais não foram tratados como fato.                                                                                                                          |
 
+## Validação de licença Web — 2026-08-06
+
+### Decisão
+
+**LICENÇA WEB: OK, pelo Fab Standard License, desde que a compra seja da edição
+com arquivos-fonte (não `Reference-Only`) e que Little Worlds permaneça uma
+experiência interativa, não uma biblioteca/editor de assets.**
+
+O [Fab Standard License](https://www.fab.com/eula?lang=en) permite usar assets
+com ferramentas compatíveis, modificá-los para incorporá-los em projetos e
+distribuir comercialmente projetos que os incorporem. A proibição relevante é
+revender ou redistribuir gratuitamente o asset **em base standalone**. Isso cobre
+FBX → GLB/KTX2, LODs, atlases, redução de texturas e materiais próprios quando
+usados apenas para renderizar Little Worlds.
+
+Servir `GET /assets/world/tree.glb` é uma cópia transmitida do asset derivado,
+mas, aqui, ela é embutida no projeto WebGL, não um produto autônomo para
+descoberta, download ou reutilização. O fato de um usuário avançado inspecionar a
+rede não transforma a experiência em repositório de assets. O Fab não exige DRM
+nem publica restrição específica a WebGL público.
+
+### Canais oficiais encontrados
+
+| Canal                                        | Situação observada                                                                                |     Preço público em 2026-08-06 | Licença aplicável                                                                 | Conteúdo/formato publicado                                                           | Classificação                                      |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------: | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| Página LMHPOLY                               | Página oficial e documentação, **não checkout**                                                   |       US$ 59,99 como referência | Nenhuma licença própria pública vinculada à compra; FAQ remete à licença do canal | 400+ assets, Unity/UE, FBX declarado na FAQ, fontes 4K, LODs, demos                  | **AMBÍGUO como canal**: não há compra direta atual |
+| Unity Asset Store                            | A página LMHPOLY exibe o botão Unity como indisponível; não foi localizada listagem ativa oficial |              **NÃO CONFIRMADO** | Unity Asset Store EULA se a listagem voltar e não for `Restricted`/non-standard   | FAQ: pacote Unity contém FBX na pasta `Meshes`; disponibilidade atual não confirmada | **PROVAVELMENTE OK**, mas não é canal atual        |
+| Fab — `de000302-8234-4d8b-a45f-bbce3139bd42` | Checkout oficial ativo; preço requer selecionar licença/região                                    | **NÃO CONFIRMADO publicamente** | Fab Standard License; escolher tier que entregue source, não `Reference-Only`     | Listing declara Unity e Unreal; produto anuncia biblioteca, demos, materiais e LODs  | **OK — recomendado**                               |
+
+Não foi localizado outro checkout oficial. Unity seria também uma rota aceitável
+sob a EULA padrão: ela permite incorporar, transmitir e distribuir assets
+embutidos em produto digital com conteúdo original substancial e modificar assets
+não-SDK. A FAQ esclarece que o produto não pode ser desenhado para permitir
+extração ou download separado. Little Worlds não expõe catálogo, exportação ou
+ferramentas de criação ao visitante.
+
+### O que os termos permitem e não permitem
+
+| Operação                                                        | Fab Standard                                                 | Unity Standard EULA, se disponível                                               | Decisão para Little Worlds                  |
+| --------------------------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------- | ------------------------------------------- |
+| Comprar e usar em produto público/comercial                     | permitido em projeto incorporado                             | permitido em `Licensed Product` incorporado                                      | sim                                         |
+| FBX → GLB; PNG/JPG → KTX2                                       | permitido como ajuste para incorporar                        | permitido para asset não-SDK                                                     | sim                                         |
+| Redução, LOD, UV/atlas, mesh merge e recolorir/material próprio | permitido como modificação/ajuste                            | permitido para asset não-SDK                                                     | sim                                         |
+| Transmitir GLB/KTX2 via HTTP para renderização                  | permitido no projeto incorporado; sem regra WebGL específica | permitido como transmissão/distribuição incorporada                              | sim                                         |
+| URL técnica inspecionável pelo browser                          | não tratado expressamente; sem DRM obrigatório               | não tratado expressamente; produto não pode ser concebido para download separado | aceitável sem UX/API de download/exportação |
+| Vender, entregar ou publicar GLB/KTX2 como pack/biblioteca      | proibido como standalone                                     | fora da permissão de produto incorporado                                         | não                                         |
+
+Esta é uma leitura técnica dos termos públicos, não aconselhamento jurídico. No
+checkout, conferir que a licença seja **Fab Standard** e que não exista termo
+adicional visível na listagem.
+
 ### Fontes primárias
 
 - [Página oficial LMHPOLY — conteúdo, materiais, texturas, LOD, triângulos, preço e FAQ resumida](https://www.lmhpoly.com/game-assets/stylized-poly-nature-environment)
 - [FAQ oficial LMHPOLY — FBX, Blender/outro motor e condição de venda](https://www.lmhpoly.com/faq)
 - [Listagem oficial no Fab — demos, limites de efeitos de demo e formatos de distribuição UE/Unity](https://www.fab.com/listings/de000302-8234-4d8b-a45f-bbce3139bd42)
+- [Fab Standard License — modificação, incorporação e redistribuição standalone](https://www.fab.com/eula?lang=en)
+- [Unity Asset Store EULA — Licensed Product, transmissão e modificação](https://unity.com/legal/as-terms)
+- [Unity Asset Store EULA FAQ — incorporação versus produto de extração/download](https://assetstore.unity.com/browse/eula-faq)
 - [Demos e tutorial oficial citados pelo fornecedor](https://www.youtube.com/watch?v=zJJGXYATpCA)
 - [AeonShaper no Fab — benchmark técnico/artístico, não candidato de compra nesta sprint](https://www.fab.com/listings/6ae05e13-e0ee-468b-a6b0-07404b73d978?lang=en)
 - [Quaternius Stylized Nature MegaKit — formatos e CC0 do complemento potencial](https://quaternius.com/packs/stylizednaturemegakit.html)
