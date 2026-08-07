@@ -14,6 +14,10 @@ const sceneDefinitions: Record<SceneId, SceneDefinition> = {
     id: "benchmark",
     component: lazy(() => import("@/features/world/scenes/benchmark/BenchmarkScene")),
   },
+  "benchmark-v2": {
+    id: "benchmark-v2",
+    component: lazy(() => import("@/features/world/scenes/benchmark-v2/BenchmarkV2Scene")),
+  },
 };
 
 export function getSceneDefinition(sceneId: SceneId): SceneDefinition {

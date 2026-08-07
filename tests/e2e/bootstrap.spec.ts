@@ -19,9 +19,15 @@ test("starts the temporary experience and exposes calibration", async ({ page })
   await expect(page.getByText("Modelo: legacy")).toBeVisible();
   await page.getByRole("button", { name: "Projetos" }).click();
   await expect(page.getByText("Cena: projects")).toBeVisible();
-  await page.getByRole("button", { name: "Benchmark" }).click();
+  await page.getByRole("button", { name: "Benchmark", exact: true }).click();
   await expect(page.getByTestId("experience-canvas")).toHaveAttribute("data-scene-id", "benchmark");
   await expect(page.getByText("Cena: benchmark")).toBeVisible();
+  await page.getByRole("button", { name: "Benchmark V2" }).click();
+  await expect(page.getByTestId("experience-canvas")).toHaveAttribute(
+    "data-scene-id",
+    "benchmark-v2",
+  );
+  await expect(page.getByText("Cena: benchmark-v2")).toBeVisible();
   await page.getByRole("button", { name: "Hub" }).click();
   await expect(page.getByText("Cena: hub")).toBeVisible();
   const speed = page.getByTestId("calibration-walkSpeed");
@@ -59,7 +65,7 @@ test("keeps the in-canvas fallback when benchmark assets are unavailable", async
   await page.getByRole("button", { name: /Iniciar/ }).click();
   await page.evaluate(() => document.exitPointerLock());
   await page.keyboard.press("F3");
-  await page.getByRole("button", { name: "Benchmark" }).click();
+  await page.getByRole("button", { name: "Benchmark", exact: true }).click();
 
   await expect(page.getByTestId("experience-canvas")).toHaveAttribute("data-scene-id", "benchmark");
   await expect(page.getByText("Cena: benchmark")).toBeVisible();

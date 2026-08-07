@@ -30,6 +30,12 @@ const BENCHMARK_BOUNDS = createBoundedCollisionAdapter({
   minZ: -14,
   maxZ: 14,
 });
+const BENCHMARK_V2_BOUNDS = createBoundedCollisionAdapter({
+  minX: -14,
+  maxX: 14,
+  minZ: -14,
+  maxZ: 14,
+});
 
 export function PlayerController() {
   const input = useInputController();
@@ -134,7 +140,9 @@ export function PlayerController() {
         ? HUB_BOUNDS.resolveMovement
         : sceneId === "projects"
           ? PROJECTS_BOUNDS.resolveMovement
-          : BENCHMARK_BOUNDS.resolveMovement,
+          : sceneId === "benchmark"
+            ? BENCHMARK_BOUNDS.resolveMovement
+            : BENCHMARK_V2_BOUNDS.resolveMovement,
     );
 
     if (result.jumped) temporaryAudioController.play("jump");
