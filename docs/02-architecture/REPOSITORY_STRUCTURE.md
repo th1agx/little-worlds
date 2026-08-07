@@ -16,7 +16,8 @@
 │   ├── 06-research/
 │   └── templates/
 ├── public/
-│   └── assets/{audio,fonts,models,textures}/       # runtime otimizado, Sprint 1+
+│   └── assets/{world,vegetation,rocks,props,effects,audio,music,materials}/
+│                                                    # somente derivados aprovados e otimizados
 ├── src/
 │   ├── app/                                       # rotas e layouts Next
 │   ├── components/{a11y,layout,ui}/               # UI compartilhada não-domínio
@@ -49,7 +50,7 @@ world -X-> app routing
 
 - Um feature pode expor apenas sua API pública em `index.ts`; deep import entre features é proibido.
 - Componentes de cena ficam perto do planeta que os usa; só abstrair após segunda reutilização real.
-- Assets fonte/editáveis ficam fora de `public` e podem usar storage de artefatos; `public` contém somente derivados licenciados e otimizados.
+- Assets fonte/editáveis ficam fora de `public` e podem usar storage de artefatos; `public` contém somente derivados licenciados e otimizados. O contrato completo está no ADR 0014 e em `docs/08-asset-library/PIPELINE.md`.
 - Nome de asset: `{domain}-{object}-{variant}-{lod}.{ext}`, minúsculo e sem espaços.
 - Cada planeta tem `definition.ts`, `Scene.tsx`, `assets.manifest.ts` e testes pertinentes; não um “components” genérico infinito.
 
@@ -59,4 +60,3 @@ world -X-> app routing
 - `CONTENT_GUIDE.md` quando houver autoria recorrente.
 - Runbook de incidentes/deploy quando produção existir.
 - Changelog público apenas quando versões forem publicadas.
-

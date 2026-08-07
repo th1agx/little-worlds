@@ -1,6 +1,6 @@
 # ADR 0012 — Navegação diegética por limiares
 
-- Estado: accepted
+- Estado: superseded por ADR 0013
 - Data: 2026-08-05
 
 ## Contexto

@@ -26,7 +26,7 @@ Materiais foscos, luz dourada e controles físicos transmitem cuidado. Evitar re
 
 ### Simplicidade expressiva
 
-Uma árvore bem posicionada vale mais que uma floresta. Uma abertura para o céu vale mais que vinte janelas. Cada asset precisa sustentar narrativa, navegação ou composição.
+Simplicidade significa hierarquia, não pobreza visual. Uma massa de árvores bem composta vale mais que uma floresta procedural sem foco. Uma abertura para o céu vale mais que vinte janelas. Cada família de assets precisa sustentar narrativa, navegação, atmosfera ou composição.
 
 ### Esperança no horizonte
 
@@ -36,20 +36,20 @@ Toda cena oferece pelo menos uma vista aberta. Arquitetura nunca aprisiona; inte
 
 Os hex abaixo são alvos de direção, não valores finais de shader. Cor final depende de tone mapping, exposição e display. Contraste de texto é validado separadamente.
 
-| Papel | Cor-alvo | Uso |
-| --- | --- | --- |
-| warm white | `#F7E9CF` | superfícies claras, interior do terminal, highlights amplos |
-| parchment | `#E8CFA7` | chão claro, pedra quente, UI secundária |
-| sun gold | `#F2BC5B` | disco solar, bordas, ponto de orientação |
-| honey | `#D9943D` | luz funcional, detalhes do computador |
-| soft orange | `#CE714A` | horizonte, metal pintado, acento emocional |
-| dusk rose | `#B77779` | transição céu/névoa, variação por planeta |
-| gentle purple | `#78658D` | céu médio, sombra colorida, planeta Tecnologia |
-| deep shadow blue | `#263B59` | sombra máxima, céu superior, nunca fundo preto puro |
-| sage | `#7D8F61` | vegetação base |
-| dry grass | `#B79A61` | gramíneas, Sobre/Experiência |
-| warm stone | `#9C7B67` | rochas e arquitetura mineral |
-| painted metal | `#C8BFAE` | computadores, observatórios, estruturas |
+| Papel            | Cor-alvo  | Uso                                                         |
+| ---------------- | --------- | ----------------------------------------------------------- |
+| warm white       | `#F7E9CF` | superfícies claras, interior do terminal, highlights amplos |
+| parchment        | `#E8CFA7` | chão claro, pedra quente, UI secundária                     |
+| sun gold         | `#F2BC5B` | disco solar, bordas, ponto de orientação                    |
+| honey            | `#D9943D` | luz funcional, detalhes do computador                       |
+| soft orange      | `#CE714A` | horizonte, metal pintado, acento emocional                  |
+| dusk rose        | `#B77779` | transição céu/névoa, variação por planeta                   |
+| gentle purple    | `#78658D` | céu médio, sombra colorida, planeta Tecnologia              |
+| deep shadow blue | `#263B59` | sombra máxima, céu superior, nunca fundo preto puro         |
+| sage             | `#7D8F61` | vegetação base                                              |
+| dry grass        | `#B79A61` | gramíneas, Sobre/Experiência                                |
+| warm stone       | `#9C7B67` | rochas e arquitetura mineral                                |
+| painted metal    | `#C8BFAE` | computadores, observatórios, estruturas                     |
 
 ### Distribuição
 
@@ -64,7 +64,7 @@ Os hex abaixo são alvos de direção, não valores finais de shader. Cor final 
 - O dourado indica orientação, vida ou disponibilidade; não é moeda/recompensa.
 - Roxo conecta céu e sombra; nunca vira neon saturado.
 - Azul aparece por profundidade e contraste térmico, não para tornar uma cena “sci-fi”.
-- Verde é dessaturado e aquecido pela luz; vegetação esmeralda é proibida.
+- Verde é aquecido pela luz e controlado pelo color grade. Verdes ricos são permitidos; verde neon/esmeralda uniforme continua proibido.
 - Cada planeta recebe um acento, mas permanece dentro da paleta global.
 
 ## 4. Materiais
@@ -75,16 +75,16 @@ Materiais devem ser legíveis por roughness, cor e silhueta antes de depender de
 
 ### Famílias permitidas
 
-| Família | Aparência | Uso | Evitar |
-| --- | --- | --- | --- |
-| terra mineral | mate, granularidade larga, variação suave | solo e caminhos | displacement ruidoso, lama molhada |
-| pedra erodida | bordas arredondadas, planos grandes | marcos, assentos, fundações | scan hiper-real sem estilização |
-| cerâmica/cal | warm white, irregularidade sutil | paredes internas e domos | branco clínico/reflexo plástico |
-| metal pintado | fosco/satinado, bordas discretas | computador e mecanismos | chrome, gunmetal militar, desgaste extremo |
-| madeira clara | fibra ampla e baixa frequência | banco, corrimão, detalhes | cabana rústica excessiva |
-| vidro leitoso | translúcido/opalino, brilho baixo | luminárias e telas inativas | vidro preto espelhado |
-| vegetação | cores por massa/vertex, roughness alta | plantas | folhas recortadas fotorrealistas inconsistentes |
-| emissivo âmbar | intensidade controlada e borda suave | estado interativo | bloom estourado ou ciano padrão |
+| Família        | Aparência                                 | Uso                         | Evitar                                          |
+| -------------- | ----------------------------------------- | --------------------------- | ----------------------------------------------- |
+| terra mineral  | mate, granularidade larga, variação suave | solo e caminhos             | displacement ruidoso, lama molhada              |
+| pedra erodida  | bordas arredondadas, planos grandes       | marcos, assentos, fundações | scan hiper-real sem estilização                 |
+| cerâmica/cal   | warm white, irregularidade sutil          | paredes internas e domos    | branco clínico/reflexo plástico                 |
+| metal pintado  | fosco/satinado, bordas discretas          | computador e mecanismos     | chrome, gunmetal militar, desgaste extremo      |
+| madeira clara  | fibra ampla e baixa frequência            | banco, corrimão, detalhes   | cabana rústica excessiva                        |
+| vidro leitoso  | translúcido/opalino, brilho baixo         | luminárias e telas inativas | vidro preto espelhado                           |
+| vegetação      | cores por massa/vertex, roughness alta    | plantas                     | folhas recortadas fotorrealistas inconsistentes |
+| emissivo âmbar | intensidade controlada e borda suave      | estado interativo           | bloom estourado ou ciano padrão                 |
 
 ### Regras técnicas de aparência
 
@@ -92,7 +92,7 @@ Materiais devem ser legíveis por roughness, cor e silhueta antes de depender de
 - Reutilizar material com variações por cor/vertex antes de criar novo.
 - Microdetail invisível à distância de uso é removido.
 - Decals só para função/narrativa clara; não adicionar sujeira aleatória.
-- Transparência é exceção por custo e sorting; vegetação deve preferir geometria simples.
+- Transparência continua cara; folhagem pode usar alpha recortado/pintado quando overdraw, sorting, mipmaps e perfil Low forem medidos no Visual Benchmark.
 
 ## 5. Iluminação
 
@@ -172,18 +172,18 @@ O gradiente varia por planeta no peso das faixas, não em linguagem.
 
 ### Linguagem
 
-Vegetação é esparsa, resiliente e movida pelo vento. Priorizar gramíneas, arbustos arredondados e uma árvore-marco ocasional. O desenho lê por massas, não por espécies botânicas.
+Vegetação é estratificada, resiliente e movida pelo vento. Pode ser visualmente densa nas margens, fundos e transições, preservando percurso, horizonte e foco. O desenho lê por massas, não por espécies botânicas.
 
-### Camadas máximas por vista
+### Camadas de composição por vista
 
 1. Cobertura baixa descontínua.
-2. Grupos de gramíneas em drift.
-3. 2–5 arbustos de médio porte.
-4. 0–1 árvore dominante.
+2. Grupos de gramíneas e flores em drift.
+3. Arbustos formando transição e enquadramento.
+4. 1 marco arbóreo ou mineral e grupos de copas secundárias nas bordas/fundo.
 
 ### Árvores
 
-- Tronco ligeiramente curvo, copa assimétrica e aberta.
+- Tronco ligeiramente curvo; copa assimétrica e volumosa, formada por massas sobrepostas.
 - Folhagem em massas grandes, não milhares de folhas visíveis.
 - Altura comum 4–7 m; árvore-marco até 9 m.
 - Cor oliva/sálvia com bordas aquecidas.
@@ -198,7 +198,7 @@ Vegetação é esparsa, resiliente e movida pelo vento. Priorizar gramíneas, ar
 
 ### Proibido
 
-Floresta densa, grama uniforme cobrindo tudo, flores multicoloridas, plantas bioluminescentes neon, árvores gigantes fantásticas ou vegetação bloqueando navegação.
+Floresta procedural sem composição, grama uniforme sem variação de massa, arco-íris floral, plantas bioluminescentes neon, árvores gigantes fantásticas ou vegetação bloqueando navegação.
 
 ## 9. Vento
 
@@ -342,17 +342,17 @@ Ease-in-out suave para câmera/arquitetura; respostas de input iniciam imediatam
 
 ### Durações de direção
 
-| Evento | Duração |
-| --- | ---: |
-| feedback hover/foco | 160–240 ms |
-| prompt contextual | 240–400 ms |
-| resposta física do computador | 450–800 ms |
-| aproximação da câmera | 1.2–1.8 s |
-| interface ocupar tela | 500–900 ms, sobreposta à aproximação final |
-| troca de seção interna | 200–350 ms |
-| saída do computador | 900–1.4 s |
-| viagem entre planetas | 2.5–4 s, conforme loading real |
-| ciclos ambientais | 8–30 s |
+| Evento                        |                                    Duração |
+| ----------------------------- | -----------------------------------------: |
+| feedback hover/foco           |                                 160–240 ms |
+| prompt contextual             |                                 240–400 ms |
+| resposta física do computador |                                 450–800 ms |
+| aproximação da câmera         |                                  1.2–1.8 s |
+| interface ocupar tela         | 500–900 ms, sobreposta à aproximação final |
+| troca de seção interna        |                                 200–350 ms |
+| saída do computador           |                                  900–1.4 s |
+| viagem entre planetas         |             2.5–4 s, conforme loading real |
+| ciclos ambientais             |                                     8–30 s |
 
 Reduced motion substitui dolly por fade de 150–250 ms e elimina parallax/oscilações não essenciais.
 
@@ -368,7 +368,7 @@ Reduced motion substitui dolly por fade de 150–250 ms e elimina parallax/oscil
 ### Incorreto
 
 - Base espacial cinza com antenas, painéis, cabos, neon e muitas salas.
-- Planeta coberto por floresta/props de packs diferentes.
+- Planeta coberto por scatter/props de packs diferentes sem harmonização ou hierarquia.
 - Céu preto com nebulosa HDR saturada e estrelas grandes.
 - Interface holográfica flutuando fora do computador.
 - Asset fotorrealista ao lado de terreno low-poly sem tratamento.
@@ -385,4 +385,3 @@ Uma cena só avança se possuir:
 - verificação contra a lista proibida;
 - teste de silhueta em grayscale e miniatura;
 - assinatura do Art Director, UX Director e responsável por performance.
-

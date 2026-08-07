@@ -4,6 +4,7 @@ export interface AssetManifestEntry {
   id: string;
   kind: AssetKind;
   runtimePath: string;
+  sourceId?: string;
 }
 
 export type AssetManifest = readonly AssetManifestEntry[];

@@ -1,6 +1,6 @@
 # Plano de aquisição de assets — Vertical Slice
 
-**Estado:** pesquisa e seleção; não autoriza download, compra ou uso  
+**Estado:** plano histórico; substituído operacionalmente por [`../../08-asset-library/DOWNLOAD_QUEUE.md`](../../08-asset-library/DOWNLOAD_QUEUE.md); não autoriza download, compra ou uso
 **Owner:** Art Director + Technical Art/Performance  
 **Ordem:** moodboard → brief → shortlist → revisão de licença → autorização → aquisição
 
@@ -13,19 +13,19 @@
 
 ## Ordem de busca
 
-| Ordem | Categoria | Prioridade | Necessidade no Slice | Critérios decisivos | Fontes a consultar primeiro |
-| ---: | --- | --- | --- | --- | --- |
-| 1 | console/computador | P0 | hero asset e ponte para conteúdo | GLB/glTF ou conversão autorizada; tela separável; sem marca; 1–3 controles; corpo recolorível | Kenney, Quaternius, Fab, Sketchfab filtrado |
-| 2 | shell arquitetônico/pavilhão | P0 | abrigo do terminal | volume aberto/baixo; interior simples; sem estilo militar; escala humana; materiais separáveis | Fab, CGTrader, Sketchfab filtrado, kit modular mínimo |
-| 3 | rochas | P0 | escala, caminho e composição | três silhuetas; poucos materiais; collider simples; instanciável | Kenney, Quaternius, Poly Pizza, Poly Haven reduzido |
-| 4 | vegetação baixa | P0 | vento e orientação sutil | 2–3 famílias; pouca transparência; atlas/instancing; recolorível | Kenney, Quaternius, Poly Pizza, pack estilizado pequeno |
-| 5 | materiais-base | P0 | coesão e direção | CC0; 1–2K inicial; baixa frequência; maps realmente usados | Poly Haven, ambientCG |
-| 6 | solução de céu/lighting | P0 | identidade global | gradiente controlável; HDRI só como luz/reflexo; sem horizonte incompatível | solução procedural futura, Poly Haven/ambientCG como referência |
-| 7 | áudio ambiente/UI/passos | P0 após style frame | presença e feedback | licença interativa clara; loops limpos; master e derivado rastreáveis | Sonniss GDC, Freesound CC0/CC BY, Kenney Audio |
-| 8 | passarela/ponte | P1 | marco de Projetos | modular, larga, não industrial/militar; pode derivar do shell | kit arquitetônico mínimo, Fab/CGTrader/Sketchfab |
-| 9 | HDRI adicional | P1 | nuance de iluminação | 1–2K runtime; uso como environment; CC0/licença clara | Poly Haven, ambientCG |
-| 10 | partículas | P2 | somente após composição aprovada | atlas pequeno ou points; baixo overdraw; sem estética mágica | procedural, Kenney, CC0 pontual |
-| 11 | música | P2 | não é requisito do Slice | website interativo coberto; loop/stems; sem Content ID incerto | compositor, Artlist/Epidemic após revisão, item a item |
+| Ordem | Categoria                    | Prioridade          | Necessidade no Slice             | Critérios decisivos                                                                            | Fontes a consultar primeiro                                     |
+| ----: | ---------------------------- | ------------------- | -------------------------------- | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+|     1 | console/computador           | P0                  | hero asset e ponte para conteúdo | GLB/glTF ou conversão autorizada; tela separável; sem marca; 1–3 controles; corpo recolorível  | Kenney, Quaternius, Fab, Sketchfab filtrado                     |
+|     2 | shell arquitetônico/pavilhão | P0                  | abrigo do terminal               | volume aberto/baixo; interior simples; sem estilo militar; escala humana; materiais separáveis | Fab, CGTrader, Sketchfab filtrado, kit modular mínimo           |
+|     3 | rochas                       | P0                  | escala, caminho e composição     | três silhuetas; poucos materiais; collider simples; instanciável                               | Kenney, Quaternius, Poly Pizza, Poly Haven reduzido             |
+|     4 | vegetação baixa              | P0                  | vento e orientação sutil         | 2–3 famílias; pouca transparência; atlas/instancing; recolorível                               | Kenney, Quaternius, Poly Pizza, pack estilizado pequeno         |
+|     5 | materiais-base               | P0                  | coesão e direção                 | CC0; 1–2K inicial; baixa frequência; maps realmente usados                                     | Poly Haven, ambientCG                                           |
+|     6 | solução de céu/lighting      | P0                  | identidade global                | gradiente controlável; HDRI só como luz/reflexo; sem horizonte incompatível                    | solução procedural futura, Poly Haven/ambientCG como referência |
+|     7 | áudio ambiente/UI/passos     | P0 após style frame | presença e feedback              | licença interativa clara; loops limpos; master e derivado rastreáveis                          | Sonniss GDC, Freesound CC0/CC BY, Kenney Audio                  |
+|     8 | passarela/ponte              | P1                  | marco de Projetos                | modular, larga, não industrial/militar; pode derivar do shell                                  | kit arquitetônico mínimo, Fab/CGTrader/Sketchfab                |
+|     9 | HDRI adicional               | P1                  | nuance de iluminação             | 1–2K runtime; uso como environment; CC0/licença clara                                          | Poly Haven, ambientCG                                           |
+|    10 | partículas                   | P2                  | somente após composição aprovada | atlas pequeno ou points; baixo overdraw; sem estética mágica                                   | procedural, Kenney, CC0 pontual                                 |
+|    11 | música                       | P2                  | não é requisito do Slice         | website interativo coberto; loop/stems; sem Content ID incerto                                 | compositor, Artlist/Epidemic após revisão, item a item          |
 
 ## Critério de seleção e rejeição
 
@@ -67,4 +67,3 @@ Reprovação automática: licença ambígua; NC/ND/SA/Editorial sem autorizaçã
 Para cada finalista, registrar URL, autor, preço/data, licença/EULA e prova, formato, tamanho conhecido, topologia/texturas quando disponível, uso previsto, trabalho de harmonização, risco e score. A autorização deve citar o ID do candidato, não uma categoria genérica.
 
 Após aquisição, o asset entra em quarentena fora de `public`, passa por inspeção/validação e só então recebe derivado runtime + manifesto. A aquisição não é aceitação artística nem técnica.
-

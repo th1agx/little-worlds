@@ -24,6 +24,12 @@ const MIN_PITCH = -Math.PI / 2.2;
 const MAX_PITCH = Math.PI / 2.2;
 const HUB_BOUNDS = createBoundedCollisionAdapter({ minX: -18, maxX: 18, minZ: -18, maxZ: 18 });
 const PROJECTS_BOUNDS = createBoundedCollisionAdapter({ minX: -14, maxX: 14, minZ: -20, maxZ: 14 });
+const BENCHMARK_BOUNDS = createBoundedCollisionAdapter({
+  minX: -14,
+  maxX: 14,
+  minZ: -14,
+  maxZ: 14,
+});
 
 export function PlayerController() {
   const input = useInputController();
@@ -36,7 +42,7 @@ export function PlayerController() {
   const locomotionModel = useExperienceStore((state) => state.locomotionModel);
   const locomotionTuning = useExperienceStore((state) => state.locomotionTuning);
   const signalLanding = useExperienceStore((state) => state.signalLanding);
-  const requestPortalActivation = useExperienceStore((state) => state.requestPortalActivation);
+  const requestThresholdCrossing = useExperienceStore((state) => state.requestThresholdCrossing);
   const updateMetrics = useExperienceStore((state) => state.updateMetrics);
   const targetYaw = useRef(0);
   const targetPitch = useRef(0);
@@ -81,7 +87,7 @@ export function PlayerController() {
     )
       return;
     const snapshot = input.snapshot();
-    if (snapshot.interactRequested) requestPortalActivation();
+    if (snapshot.interactRequested) requestThresholdCrossing();
     targetYaw.current -= snapshot.look.x * preferences.mouseSensitivity;
     targetPitch.current = Math.max(
       MIN_PITCH,
@@ -124,7 +130,11 @@ export function PlayerController() {
           motion.current.position.z,
         ),
       },
-      sceneId === "hub" ? HUB_BOUNDS.resolveMovement : PROJECTS_BOUNDS.resolveMovement,
+      sceneId === "hub"
+        ? HUB_BOUNDS.resolveMovement
+        : sceneId === "projects"
+          ? PROJECTS_BOUNDS.resolveMovement
+          : BENCHMARK_BOUNDS.resolveMovement,
     );
 
     if (result.jumped) temporaryAudioController.play("jump");

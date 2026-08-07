@@ -7,8 +7,8 @@ afterEach(() => {
     activeSceneId: "hub",
     transitionTarget: null,
     transitionPhase: "idle",
-    portal: null,
-    portalPhase: "dormant",
+    threshold: null,
+    thresholdPhase: "dormant",
     locomotionModel: "controlled-levitation",
     locomotionTuning: { ...CONTROLLED_LEVITATION_DEFAULTS },
   });
@@ -44,15 +44,20 @@ describe("locomotion calibration store", () => {
     expect(useExperienceStore.getState().transitionPhase).toBe("idle");
   });
 
-  it("only activates the scene transition from a ready portal", () => {
+  it("only activates the scene transition from an active threshold", () => {
     const store = useExperienceStore.getState();
-    store.setPortalState(
-      { id: "hub-to-projects", destination: "projects", label: "Explorar Projetos" },
-      "ready",
+    store.setThresholdState(
+      {
+        id: "limiar-hub-projects",
+        destination: "projects",
+        label: "Atravessar para Projetos",
+        palette: { core: "#f7e9cf", glow: "#f2bc5b", atmosphere: "#ce714a" },
+      },
+      "active",
     );
-    store.requestPortalActivation();
+    store.requestThresholdCrossing();
 
-    expect(useExperienceStore.getState().portalPhase).toBe("transitioning");
+    expect(useExperienceStore.getState().thresholdPhase).toBe("crossing");
     expect(useExperienceStore.getState().transitionTarget).toBe("projects");
     expect(useExperienceStore.getState().transitionPhase).toBe("out");
   });

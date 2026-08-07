@@ -10,7 +10,7 @@ import {
   type LocomotionTuning,
 } from "@/features/player/locomotion/PlayerMotionModel";
 import type { SceneId } from "@/features/world/types";
-import type { PortalDescriptor, PortalPhase } from "@/features/world/portals/types";
+import type { ThresholdDescriptor, ThresholdPhase } from "@/features/world/thresholds/types";
 
 const defaultPreferences: ExperiencePreferences = {
   audioEnabled: false,
@@ -25,8 +25,8 @@ interface ExperienceState {
   activeSceneId: SceneId;
   transitionTarget: SceneId | null;
   transitionPhase: "idle" | "out" | "in";
-  portal: PortalDescriptor | null;
-  portalPhase: PortalPhase;
+  threshold: ThresholdDescriptor | null;
+  thresholdPhase: ThresholdPhase;
   mode: ExperienceMode;
   pointerLocked: boolean;
   preferences: ExperiencePreferences;
@@ -37,9 +37,9 @@ interface ExperienceState {
   beginExperience: () => void;
   selectScene: (sceneId: SceneId) => void;
   requestSceneTransition: (sceneId: SceneId) => void;
-  setPortalState: (portal: PortalDescriptor, phase: PortalPhase) => void;
-  clearPortal: (portalId: string) => void;
-  requestPortalActivation: () => void;
+  setThresholdState: (threshold: ThresholdDescriptor, phase: ThresholdPhase) => void;
+  clearThreshold: (thresholdId: string) => void;
+  requestThresholdCrossing: () => void;
   advanceSceneTransition: () => void;
   setPointerLocked: (pointerLocked: boolean) => void;
   updatePreferences: (patch: Partial<ExperiencePreferences>) => void;
@@ -54,8 +54,8 @@ export const useExperienceStore = create<ExperienceState>((set) => ({
   activeSceneId: "hub",
   transitionTarget: null,
   transitionPhase: "idle",
-  portal: null,
-  portalPhase: "dormant",
+  threshold: null,
+  thresholdPhase: "dormant",
   mode: "welcome",
   pointerLocked: false,
   preferences: defaultPreferences,
@@ -80,6 +80,11 @@ export const useExperienceStore = create<ExperienceState>((set) => ({
     hoverState: "grounded-hover",
     dampingIntensity: 0,
     locomotionModel: "controlled-levitation",
+    drawCalls: 0,
+    triangles: 0,
+    geometries: 0,
+    textures: 0,
+    programs: 0,
   },
   beginExperience: () => set({ mode: "exploring" }),
   selectScene: (sceneId) =>
@@ -90,22 +95,22 @@ export const useExperienceStore = create<ExperienceState>((set) => ({
         ? state
         : { transitionTarget: sceneId, transitionPhase: "out" },
     ),
-  setPortalState: (portal, portalPhase) =>
+  setThresholdState: (threshold, thresholdPhase) =>
     set((state) =>
-      state.portal?.id === portal.id && state.portalPhase === portalPhase
+      state.threshold?.id === threshold.id && state.thresholdPhase === thresholdPhase
         ? state
-        : { portal, portalPhase },
+        : { threshold, thresholdPhase },
     ),
-  clearPortal: (portalId) =>
+  clearThreshold: (thresholdId) =>
     set((state) =>
-      state.portal?.id === portalId ? { portal: null, portalPhase: "dormant" } : state,
+      state.threshold?.id === thresholdId ? { threshold: null, thresholdPhase: "dormant" } : state,
     ),
-  requestPortalActivation: () =>
+  requestThresholdCrossing: () =>
     set((state) =>
-      state.portal && state.portalPhase === "ready"
+      state.threshold && state.thresholdPhase === "active"
         ? {
-            portalPhase: "transitioning",
-            transitionTarget: state.portal.destination,
+            thresholdPhase: "crossing",
+            transitionTarget: state.threshold.destination,
             transitionPhase: "out",
           }
         : state,

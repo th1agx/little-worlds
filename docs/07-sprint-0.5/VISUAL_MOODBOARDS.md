@@ -51,29 +51,29 @@ Lens flare central, black crush, teal-orange agressivo, laboratório branco, cyb
 
 ### Procurar
 
-- Gramíneas em drifts com vazios.
-- Plantas escolhidas por estrutura/silhueta e movimento.
-- Uma árvore assimétrica de copa aberta.
-- Paleta sálvia, oliva, palha e bordas douradas.
-- Vegetação que suaviza pedra/arquitetura sem esconder caminho.
+- Gramíneas em estratos, com variação de altura e vazios de percurso.
+- Plantas escolhidas por estrutura/silhueta, volume e movimento.
+- Copas volumosas e assimétricas, com massas de folhagem sobrepostas.
+- Verdes aquecidos, sálvia/oliva, acentos florais relacionados e bordas douradas.
+- Vegetação densa nas margens e fundos, suavizando pedra/cliffs sem esconder caminho.
 
 ### Buscas
 
 ```text
-Piet Oudolf meadow garden sunset grasses movement structure
-naturalistic planting sparse drifts warm dry grass architecture
-single windswept tree open canopy golden hour landscape
-stylized low poly grass clumps olive sage game asset
-minimal sculpture garden grasses stone sunset
+stylized 3D environment dense painterly trees warm light
+stylized meadow layered grass wildflowers game environment
+soft foliage trees volumetric canopy stylized environment
+stylized cliffs waterfall warm sunset environment
+stylized stream path bridge cozy woodland environment
 ```
 
 ### Selecionar
 
-1 vista ampla de massas, 2–3 recortes de tuft/seedhead, 1 árvore, 1 encontro com caminho e 1 low-poly simplificado. Estudar o princípio naturalista associado a ciclo/estrutura, não copiar jardim específico.
+1 vista ampla de massas, 2–3 recortes de estratos baixos, 2 famílias de copa, 1 encontro com caminho/água e 1 comparação de perfil Low. Estudar volume, estratificação e hierarquia, não copiar a demo de um fornecedor.
 
 ### Rejeitar
 
-Lawn uniforme, jardim floral colorido, floresta, foliage card fotorrealista, bioluminescência ou vegetação tropical exuberante.
+Lawn uniforme sem camadas, arco-íris floral, floresta sem composição, foliage card fotorrealista, bioluminescência ou vegetação tropical que imponha outro bioma.
 
 ## 4. Planetas e terreno
 
@@ -310,4 +310,3 @@ Cada board deve produzir:
 - assinatura de Creative Director e Art Director.
 
 Moodboard não aprovado não autoriza concept, compra de asset ou implementação.
-

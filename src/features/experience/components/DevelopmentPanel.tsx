@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import type {
   LocomotionModel,
   LocomotionTuning,
@@ -80,6 +81,7 @@ function ModelButton({
 }
 
 export function DevelopmentPanel() {
+  const [view, setView] = useState<"compact" | "full" | "hidden">("compact");
   const metrics = useExperienceStore((state) => state.metrics);
   const requestSceneTransition = useExperienceStore((state) => state.requestSceneTransition);
   const locomotionModel = useExperienceStore((state) => state.locomotionModel);
@@ -88,7 +90,31 @@ export function DevelopmentPanel() {
   const updateTuning = useExperienceStore((state) => state.updateLocomotionTuning);
   const restoreTuning = useExperienceStore((state) => state.restoreLocomotionTuning);
 
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "F3") return;
+      event.preventDefault();
+      setView((current) => (current === "full" ? "hidden" : "full"));
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   if (process.env.NODE_ENV !== "development") return null;
+  if (view === "hidden") return null;
+
+  if (view === "compact") {
+    return (
+      <aside
+        aria-label="Diagnóstico compacto"
+        className="development-panel development-panel--compact"
+      >
+        <span>FPS: {metrics.fps}</span>
+        <span>Cena: {metrics.sceneId}</span>
+        <span>Modelo: {metrics.locomotionModel}</span>
+      </aside>
+    );
+  }
 
   return (
     <aside aria-label="Diagnóstico de desenvolvimento" className="development-panel">
@@ -100,6 +126,11 @@ export function DevelopmentPanel() {
       <span>Solo: {metrics.grounded ? "sim" : "não"}</span>
       <span>Movimento: {metrics.locomotion}</span>
       <span>Áudio: {metrics.audioActive ? "ativo" : "mudo"}</span>
+      <span>Draw calls: {metrics.drawCalls}</span>
+      <span>Triângulos: {metrics.triangles}</span>
+      <span>Geometrias: {metrics.geometries}</span>
+      <span>Texturas: {metrics.textures}</span>
+      <span>Programas: {metrics.programs}</span>
       <span>Velocidade: {metrics.speed.toFixed(2)} m/s</span>
       <span>Altura de suspensão: {metrics.hoverHeight.toFixed(3)} m</span>
       <span>Vel. vertical: {metrics.verticalVelocity.toFixed(2)} m/s</span>
@@ -111,6 +142,9 @@ export function DevelopmentPanel() {
         </button>
         <button onClick={() => requestSceneTransition("projects")} type="button">
           Projetos
+        </button>
+        <button onClick={() => requestSceneTransition("benchmark")} type="button">
+          Benchmark
         </button>
       </div>
       <hr />

@@ -11,7 +11,14 @@ export function DevelopmentMetrics() {
   useFrame((state, delta) => {
     elapsed.current += delta;
     if (elapsed.current < 0.5) return;
-    updateMetrics({ fps: Math.round(1 / Math.max(delta, 0.001)) });
+    updateMetrics({
+      fps: Math.round(1 / Math.max(delta, 0.001)),
+      drawCalls: state.gl.info.render.calls,
+      triangles: state.gl.info.render.triangles,
+      geometries: state.gl.info.memory.geometries,
+      textures: state.gl.info.memory.textures,
+      programs: state.gl.info.programs?.length ?? 0,
+    });
     elapsed.current = 0;
   });
 
